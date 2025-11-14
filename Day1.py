@@ -1,11 +1,13 @@
-a=10
-b=20
-if a > 20 :
-    print(f"This is less than 30 and value of a is {a}")
-elif a<10:
-    print(f"This is smaller than 10 and value of a is {a}")
-else:
-    print(f"God knows what is this and value of a is {a}")
+a=int(input("Enter first number:"))
+b=int(input("Enter second number:"))
 
-name = int(input("Enter your name for enrollment:"))
-print("Name of the candidate is ", name, type(name))
+op=str(input("Enter the operation:"))
+
+if op == "+":
+    print(f"Sum of two number is {a+b}")
+elif op == "-":
+    print(f"Difference of two number is {a-b}")
+elif op == "*":
+    print("Product of two number is ", type(str(a*b)))
+else:
+    print("No operation needed by the user")
