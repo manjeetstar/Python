@@ -10,5 +10,19 @@ if a>b and a>c:
 else:
     print("No it is not greatest number")
 
-a=207 if a<200 else 30
-print(f"value of a is {a} and {name[0]}")
+for i in ["manjeet", "sanjeet","Rahul"]:
+    print(i, end=" ")
+    print()
+
+while b<100:
+    print(b, end=" ")
+    b=b+1
+else:
+    print()
+    print("Loop executed successfully")
+
+for i in range(1,7):
+    for j in range(1, i):
+        print("*", end=" ")
+    print()
+    
