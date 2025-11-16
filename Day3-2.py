@@ -1,6 +1,8 @@
 import json
 import os
 from pathlib import Path
+from MyPackage import add, minus
+from MyPackage.SubPkg import calculate
 
 address={
     "addressline1": "Canada",
@@ -20,3 +22,7 @@ if file.exists():
     print("File found")
 else:
     print("file not found")
+
+ctr=add(4,2)
+print(f"Sum of two number is {ctr}")
+calculate("Manjeet Singh")
