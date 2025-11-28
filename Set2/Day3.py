@@ -1,18 +1,11 @@
-employee={"name":10, "Address": 123, "age":20}
-print(employee)
-employee.update({"country":"Canada"})
-print(employee)
-employee["name"]="Ajay"
-print(employee.get("name1"))
+def calculate(a:int, b:int) -> int :
+    try:
+        c=a+b
+        return c
+    except TypeError:
+        print("Seems like some abronmal type being passed")
+    finally:
+        print("This will be executed always")
 
-name="qrqqqrwqwrqwr"
-ctr={}
-
-for k in name:
-    ctr[k]= ctr.setdefault(k,0)+1
-
-print(ctr)
-
-for k1, k2 in ctr.items():
-    print(k1, " ", k2)
-
+ctr= calculate(5,"10")
+print(f"Sum is {ctr}")
