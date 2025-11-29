@@ -5,7 +5,7 @@ def Method1(a):
     return closureMethod1
 
 a=Method1(3)
-print(a(2))
+print(a(2), " ", a.__closure__)
 
 def Method2(a, b):
     return a+b, a-b, a*b
