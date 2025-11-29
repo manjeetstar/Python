@@ -10,7 +10,6 @@ def AddLogic(func):
 
     return wrapper
 
-
 @AddLogic
 def calculate(a:int, b:int)->int:
     return a+b
