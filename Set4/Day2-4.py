@@ -32,3 +32,8 @@ b1.display()
 b1.display1()
 print(b1._age, b1._A__name)
 b1.personal()
+
+
+a,b=10,20
+print(a+b, a.__add__(b))
+print(dir(int))
