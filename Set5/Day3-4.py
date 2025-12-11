@@ -18,3 +18,4 @@ class display:
     
 d1=display()
 d1.display(5,10)
+print(display.__dict__)
