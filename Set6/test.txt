@@ -1,0 +1,19 @@
+[93m17:22:10 | WARNING | __main__ | This is a warning[0m
+[91m17:22:10 | ERROR | __main__ | An error occurred![0m
+[95m17:22:10 | CRITICAL | __main__ | Critical issue![0m
+[93m17:25:26 | WARNING | __main__ | This is a warning[0m
+[91m17:25:26 | ERROR | __main__ | An error occurred![0m
+[95m17:25:26 | CRITICAL | __main__ | Critical issue![0m
+[94m17:30:50 | DEBUG | __main__ | This is a debug message[0m
+[92m17:30:50 | INFO | __main__ | Everything looks good![0m
+[93m17:30:50 | WARNING | __main__ | This is a warning[0m
+[91m17:30:50 | ERROR | __main__ | An error occurred![0m
+[95m17:30:50 | CRITICAL | __main__ | Critical issue![0m
+[91m17:33:11 | ERROR | __main__ | An error occurred![0m
+[95m17:33:11 | CRITICAL | __main__ | Critical issue![0m
+[91m19:01:04 | ERROR | __main__ | An error occurred![0m
+[95m19:01:04 | CRITICAL | __main__ | Critical issue![0m
+[91m19:01:07 | ERROR | __main__ | An error occurred![0m
+[95m19:01:07 | CRITICAL | __main__ | Critical issue![0m
+[91m19:01:46 | ERROR | __main__ | An error occurred![0m
+[95m19:01:46 | CRITICAL | __main__ | Critical issue![0m

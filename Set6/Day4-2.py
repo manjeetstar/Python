@@ -26,7 +26,7 @@ class ColorFormatter(logging.Formatter):
 # -----------------------------------------
 def setup_logger():
     handler = logging.FileHandler("test.txt","a")
-    
+   
     formatter = ColorFormatter(
         "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
         datefmt="%H:%M:%S"
