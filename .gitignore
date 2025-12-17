@@ -24,3 +24,8 @@ TestResults.xml
 *.xml
 *.css
 *.log
+Test/__pycache__/*
+Test/.pytest_cache/*.*
+
+__pycache__/conftest.cpython-314-pytest-9.0.2.pyc
+Test/__pycache__/test_sample1.cpython-314-pytest-9.0.2.pyc
