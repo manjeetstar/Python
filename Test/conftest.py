@@ -14,3 +14,13 @@ def pytest_addoption(parser):
         default="qa",
         help="Environment to run tests against"
     )
+
+def pytest_sessionstart(session):
+    print("Session started")
+
+def pytest_sessionfinish(session, exitstatus):
+    print("Session finished", exitstatus)
+
+def pytest_collection_modifyitems(config, items):
+    for item in items:
+        pass
