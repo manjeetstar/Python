@@ -2,10 +2,11 @@ import pytest
 import logging
 logger=logging.getLogger("Test_test_sample1")
 
-class Test:    
-    def test_test1(self):
+class Test:  
+    @pytest.mark.parametrize("value",[11,12,13,14], ids=["Manjeet 11", "Manjeet12","Manjeet13", "Parul11"])  
+    def test_test1(self, value):
         assert (2 + 3) == 5
-        logger.info("Both numbers are equal and hence passed")
+        logger.info(f"Both numbers are equal and hence passed {value}")
         
     def test_test2(self):
         assert [1, 2, 3] == [1, 2, 3]
