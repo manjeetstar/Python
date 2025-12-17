@@ -6,7 +6,7 @@ class Test:
     @pytest.mark.api
     @pytest.mark.dependency(name="class_Test_Test1", scope="class")
     def test_test1(self):
-        assert (2 + 3) == 6
+        assert (2 + 3) == 5
         logger.info("Result1 is published")
         
     @pytest.mark.smoke
