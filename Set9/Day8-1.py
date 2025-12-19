@@ -2,7 +2,12 @@ import requests
 import json
 
 URI="https://petstore3.swagger.io/api/v3"
+URI1="https://petstore3.swagger.io/api/v3/user/logout"
+
 statusType="available"
+
+response1=requests.options(URI1)
+print(response1.headers.get("Access-Control-Allow-Methods"))
 
 response=requests.get(f"{URI}/pet/findByStatus", params={"status":statusType})
 data=response.json()
