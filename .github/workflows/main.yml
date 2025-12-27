@@ -11,7 +11,7 @@ jobs:
         steps:
           - name: checking out the app code
             uses: actions/checkout@v4
-          - run: echo "Building app is done on $ENV"
+          - run: echo Building app is done on $ENV
     test:
         runs-on: [ windows-latest ]
         needs: [ build ]
