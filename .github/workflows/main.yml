@@ -1,0 +1,29 @@
+name: Sample python gitaction for pytest
+
+on:
+    push: 
+        branches: [ main ]
+jobs:
+    build:
+        runs-on: [ windows-latest ]
+        env:
+            ENV: Staging
+        steps:
+          - name: checking out the app code
+            uses: actions/checkout@v4
+          - run: echo "Building app is done on $ENV"
+    test:
+        runs-on: [ windows-latest ]
+        needs: [ build ]
+        steps:
+            - name: Running the test code
+              run: echo "Test code is running"
+    deploy:
+        runs-on: [ ubuntu-latest ]
+        needs: [ build, test ]
+        steps:
+            - name: Running the deployment part
+              run: echo "Deploying the app on kubernetes"
+
+
+    
