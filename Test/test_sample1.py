@@ -3,7 +3,7 @@ import logging
 logger=logging.getLogger("Test_test_sample1")
 
 class Test:  
-    @pytest.mark.api
+    @pytest.mark.smoke
     @pytest.mark.dependency(name="class_Test_Test1", scope="class")
     def test_test1(self):
         assert (2 + 3) == 5
