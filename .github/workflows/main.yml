@@ -1,7 +1,19 @@
 name: Sample python gitaction for pytest
 on:
-    push: 
-        branches: [ main ]
+    workflow_dispatch: 
+        inputs:
+          env:
+            description: "Target environment"
+            required: true
+            default: "qa"
+          test_type:
+            description: "Type of tests"
+            required: true
+            default: "smoke"
+          branches:
+            description: "Branches"
+            required: true
+            default: "main"
 jobs:
     build:
         runs-on: [ ubuntu-latest ]
