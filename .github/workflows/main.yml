@@ -10,6 +10,10 @@ on:
             description: "Type of tests"
             required: true
             default: "smoke"
+            type: choice
+            options:
+              - Smoke
+              - QA
           branches:
             description: "Branches"
             required: true
