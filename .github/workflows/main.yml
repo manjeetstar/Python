@@ -1,59 +1,34 @@
-name: Sample python gitaction for pytest
+name: For checking expression condition
 on:
-    workflow_dispatch: 
-        inputs:
-          env:
-            description: "Target environment"
-            required: true
-            default: "qa"
-          test_type:
-            description: "Type of tests"
-            required: true
-            default: "smoke"
-            type: choice
-            options:
-              - Smoke
-              - QA
-          branches:
-            description: "Branches"
-            required: true
-            default: "main"
+    push:
+        branches: [ main ]
 jobs:
-    build:
+    merge1:
+        outputs:
+            merge_status: ${{steps.abc.outputs.test_status}}
+        if: github.ref == 'refs/heads/main'
         runs-on: [ ubuntu-latest ]
-        env:
-            ENV: STAGING
         steps:
-          - name: checking out the app code
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ inputs.branches }}
-          - name: Building the app
-            run: echo "Building app is done on ${{ inputs.branches }}"
-    test:
-        runs-on: [ ubuntu-latest ]
-        needs: [ build ]
-        steps:
-            - name: checking out the app code
+            - name: Checking out the artifacts
               uses: actions/checkout@v4
-            - name: Installing required software
-              uses: actions/setup-python@v5
               with:
-                python-version: '3.11'
-            - name: Installing dependencies
+                  ref: main
+            - name: Building the app
+              run: echo "Building the app"
+            - name: Outputing the Job result
+              id: abc
               run: |
-                python -m pip install --upgrade pip
-                pip install pip-tools
-                pip-compile requirements.in
-                pip install -r requirements.txt
-
-            - name: Running the test code
-              run: |
-                echo "Test code is running"
-                pytest
-    deploy:
-        runs-on: [ ubuntu-latest ]
-        needs: [ build, test ]
+                    echo "test_status=true" >> $GITHUB_OUTPUT    
+    test:
+        needs: [ merge1 ]
+        if: needs.merge1.outputs.merge_status == 'true'
+        runs-on: ubuntu-latest
         steps:
-            - name: Running the deployment part
-              run: echo "Deploying the app on kubernetes"   
+            - name: Test step
+              run: echo "Testing the app"
+    deploy:
+        needs: [ merge1, test ]
+        runs-on: [ ubuntu-latest ]
+        steps:
+            - name : Deploying the app
+              run: echo 'Deploying the app in Prod'  
