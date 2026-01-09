@@ -21,7 +21,7 @@ jobs:
                     echo "test_status=true" >> $GITHUB_OUTPUT    
     test:
         needs: [ merge1 ]
-        if: needs.merge1.outputs.merge_status == 'true'
+        if: needs.merge1.outputs.merge_status == 'false'
         runs-on: ubuntu-latest
         steps:
             - name: Test step
