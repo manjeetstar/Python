@@ -21,11 +21,15 @@ jobs:
                     echo "test_status=false" >> $GITHUB_OUTPUT    
     test:
         needs: [ merge1 ]
-        if: cancelled()
+        if: needs.merge1.outputs.merge_status == 'true'
         runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            os: [ ubuntu-latest, windows-latest]
+            browsers: [ chrome, firefox ]
         steps:
             - name: Test step
-              run: echo "Testing the app"
+              run: echo "Testing the app ${{matrix.os}} on ${{matrix.browsers}}"
             - name: Checking the test execution status
               id: t_status
               run: |
