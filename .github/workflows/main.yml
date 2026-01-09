@@ -5,7 +5,7 @@ on:
 jobs:
     merge1:
         outputs:
-            merge_status: ${{steps.abc.outputs.test_status.value}}
+            merge_status: ${{fromJson(steps.abc.outputs.test_status).value}}
         if: github.ref == 'refs/heads/main'
         runs-on: [ ubuntu-latest ]
         steps:
