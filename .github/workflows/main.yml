@@ -18,10 +18,10 @@ jobs:
             - name: Outputing the Job result
               id: abc
               run: |
-                    echo "test_status=true" >> $GITHUB_OUTPUT    
+                    echo "test_status={"value":true, "version":20" >> $GITHUB_OUTPUT    
     test:
         needs: [ merge1 ]
-        if: needs.merge1.outputs.merge_status == 'true'
+        if: needs.merge1.outputs.merge_status.value == 'true'
         runs-on: ubuntu-latest
         strategy:
           fail-fast: true
