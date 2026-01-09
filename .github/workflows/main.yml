@@ -31,7 +31,7 @@ jobs:
               run: |
                     echo "te_status=true" >> $GITHUB_OUTPUT
             - name: Infomed the QA COE
-              if: steps.t_status.outputs.te_status == 'false'
+              if: steps.t_status.outputs.te_status == 'true'
               run: echo "Test execution has completed and passed"
     deploy:
         needs: [ merge1, test ]
