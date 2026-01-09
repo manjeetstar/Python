@@ -21,7 +21,7 @@ jobs:
                     echo "test_status=false" >> $GITHUB_OUTPUT    
     test:
         needs: [ merge1 ]
-        if: failure()
+        if: cancelled()
         runs-on: ubuntu-latest
         steps:
             - name: Test step
