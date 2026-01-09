@@ -24,6 +24,7 @@ jobs:
         if: needs.merge1.outputs.merge_status == 'true'
         runs-on: ubuntu-latest
         strategy:
+          fail-fast: true
           matrix:
             os: [ ubuntu-latest, windows-latest]
             browsers: [ chrome, firefox ]
