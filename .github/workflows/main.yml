@@ -1,47 +1,56 @@
-name: For checking expression condition
+name: Gitactions Learning Curve
 on:
     push:
         branches: [ main ]
 jobs:
-    merge1:
+    build:
+        if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
         outputs:
-            merge_status: ${{fromJson(steps.abc.outputs.test_status).value}}
-        if: github.ref == 'refs/heads/main'
-        runs-on: [ ubuntu-latest ]
+            build_status: ${{steps.build_s.outputs.status}}
+        runs-on: [ ubuntu-server ]
         steps:
-            - name: Checking out the artifacts
+            - name: Checking out repo code
               uses: actions/checkout@v4
               with:
-                  ref: main
-            - name: Building the app            
-              run: echo "Building the app"
-            - name: Outputing the Job result
-              id: abc
+                ref: main
+            - name: Download required softwares
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.11'
+            - name: Checking the build status
+              id: build_s
               run: |
-                    echo 'test_status={"value":true, "version":20}' >> $GITHUB_OUTPUT    
+                    echo "status=GREEN" >> $GITHUB_OUTPUT
     test:
-        needs: [ merge1 ]
-        if: needs.merge1.outputs.merge_status == 'true'
-        runs-on: ubuntu-latest
+        runs-on: [ ubuntu-server ]
+        needs: [ build ]
+        if: needs.build.result == 'success' && needs.build.outputs.build_status == 'GREEN'
         strategy:
-          fail-fast: true
-          matrix:
-            os: [ ubuntu-latest, windows-latest]
-            browsers: [ chrome, firefox ]
+            matrix:
+                os: [ ubuntu-latest, windows-latest ]
+                browsers: [ chrome, firefox ]
         steps:
-            - name: Test step
-              if: contains(matrix.os, 'windows') == 'false'
-              run: echo "Testing the app ${{matrix.os}} on ${{matrix.browsers}}"
-            - name: Checking the test execution status
-              id: t_status
-              run: |
-                    echo "te_status=true" >> $GITHUB_OUTPUT
-            - name: Infomed the QA COE
-              if: steps.t_status.outputs.te_status == 'true'
-              run: echo "Test execution has completed and passed"
+            - name: Checking out the code
+              uses: actions/checkout@v4
+              with:
+                ref: main
+            - name: Running Test code
+              run: echo "Running the Test code"
+            - name: Updating result on Slack or Collab tools
+              run: echo "Updated necessary channels"
     deploy:
-        needs: [ merge1, test ]
-        runs-on: [ ubuntu-latest ]
+        runs-on: [ ubuntu-server ]
+        needs: [ build, test ]
+        if: needs.test.result == 'success'
         steps:
-            - name : Deploying the app
-              run: echo 'Deploying the app in Prod'  
+            - name: Deploying the code on Staging env
+              id: BStage
+              run: |
+                echo " ** Deployed on Staging **"
+                echo "status=Pass" >> $GITHUB_OUTPUT
+            - name: Deploying the code on Prod env
+              if: steps.BStage.outputs.status == 'Pass'
+              run: echo " ** Deployed on Prod env **"
+            
+
+
