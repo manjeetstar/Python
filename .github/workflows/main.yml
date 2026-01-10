@@ -7,7 +7,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
         outputs:
             build_status: ${{steps.build_s.outputs.status}}
-        runs-on: [ ubuntu-server ]
+        runs-on: [ ubuntu-latest ]
         steps:
             - name: Checking out repo code
               uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
     test:
-        runs-on: [ ubuntu-server ]
+        runs-on: [ ubuntu-latest ]
         needs: [ build ]
         if: needs.build.result == 'success' && needs.build.outputs.build_status == 'GREEN'
         strategy:
@@ -39,7 +39,7 @@ jobs:
             - name: Updating result on Slack or Collab tools
               run: echo "Updated necessary channels"
     deploy:
-        runs-on: [ ubuntu-server ]
+        runs-on: [ ubuntu-latest ]
         needs: [ build, test ]
         if: needs.test.result == 'success'
         steps:
