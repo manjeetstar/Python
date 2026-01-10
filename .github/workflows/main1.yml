@@ -1,0 +1,47 @@
+name: For checking expression condition
+on:
+    push:
+        branches: [ main ]
+jobs:
+    merge1:
+        outputs:
+            merge_status: ${{fromJson(steps.abc.outputs.test_status).value}}
+        if: github.ref == 'refs/heads/main'
+        runs-on: [ ubuntu-latest ]
+        steps:
+            - name: Checking out the artifacts
+              uses: actions/checkout@v4
+              with:
+                  ref: main
+            - name: Building the app            
+              run: echo "Building the app"
+            - name: Outputing the Job result
+              id: abc
+              run: |
+                    echo 'test_status={"value":true, "version":20}' >> $GITHUB_OUTPUT    
+    test:
+        needs: [ merge1 ]
+        if: needs.merge1.outputs.merge_status == 'true'
+        runs-on: ubuntu-latest
+        strategy:
+          fail-fast: true
+          matrix:
+            os: [ ubuntu-latest, windows-latest]
+            browsers: [ chrome, firefox ]
+        steps:
+            - name: Test step
+              if: contains(matrix.os, 'windows') == 'false'
+              run: echo "Testing the app ${{matrix.os}} on ${{matrix.browsers}}"
+            - name: Checking the test execution status
+              id: t_status
+              run: |
+                    echo "te_status=true" >> $GITHUB_OUTPUT
+            - name: Infomed the QA COE
+              if: steps.t_status.outputs.te_status == 'true'
+              run: echo "Test execution has completed and passed"
+    deploy:
+        needs: [ merge1, test ]
+        runs-on: [ ubuntu-latest ]
+        steps:
+            - name : Deploying the app
+              run: echo 'Deploying the app in Prod'  
