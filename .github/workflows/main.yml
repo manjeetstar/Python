@@ -49,7 +49,7 @@ jobs:
               run: |
                     pip install -r requirements.txt
                     mkdir -p results
-                    echo "Manjeet Singh" >> file-${{matrix.os}}-${{matrix.browsers}}.txt
+                    echo "Manjeet Singh" > file-${{matrix.os}}-${{matrix.browsers}}.txt
             - name: Running Test code
               run: echo "Running the Test code"
             - name: Updating result on Slack or Collab tools
@@ -58,7 +58,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: file-${{matrix.os}}-${{matrix.browsers}}
-                path: results/
+                path: ./results/
     deploy:
         runs-on: [ ubuntu-latest ]
         needs: [ build, test ]
