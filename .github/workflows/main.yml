@@ -28,7 +28,7 @@ jobs:
             matrix:
                 os: [ ubuntu-latest, windows-latest ]
                 browsers: [ chrome, firefox ]
-         runs-on: ${{matrix.os}}
+        runs-on: ${{ matrix.os }}
         steps:
             - name: Checking out the code
               uses: actions/checkout@v4
