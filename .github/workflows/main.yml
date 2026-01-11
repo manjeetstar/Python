@@ -48,6 +48,7 @@ jobs:
             - name: Installing other softwares
               run: |
                     pip install -r requirements.txt
+                    echo "Manjeet Singh" >> file-${{matrix.os}}-${{matrix.browsers}}.txt
             - name: Running Test code
               run: echo "Running the Test code"
             - name: Updating result on Slack or Collab tools
