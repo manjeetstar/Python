@@ -21,14 +21,14 @@ jobs:
               id: build_s
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
-    test:
-        runs-on: [ ubuntu-latest ]
+    test:       
         needs: [ build ]
         if: needs.build.result == 'success' && needs.build.outputs.build_status == 'GREEN'
         strategy:
             matrix:
                 os: [ ubuntu-latest, windows-latest ]
                 browsers: [ chrome, firefox ]
+         runs-on: ${{matrix.os}}
         steps:
             - name: Checking out the code
               uses: actions/checkout@v4
