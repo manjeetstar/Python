@@ -16,7 +16,7 @@ jobs:
             - name: Download required softwares
               uses: actions/setup-python@v5
               with:
-                python-version: '3.11'
+                python-version: '3.11'           
             - name: Checking the build status
               id: build_s
               run: |
@@ -34,6 +34,14 @@ jobs:
               uses: actions/checkout@v4
               with:
                 ref: main
+            - name: caching creation for required softwares
+              uses: actions/cache@v4
+              with:
+                path: ~/.cache/pip
+                key: pip-${{runner.os}}-${{hashFiles('requirements.txt')}}
+            - name: Installing other softwares
+              run: |
+                    pip install -r requirements.txt
             - name: Running Test code
               run: echo "Running the Test code"
             - name: Updating result on Slack or Collab tools
