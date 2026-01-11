@@ -55,7 +55,7 @@ jobs:
               id: BStage
               run: |
                 echo " ** Deployed on Staging **"
-                echo "status=Fail" >> $GITHUB_OUTPUT
+                echo "status=Pass" >> $GITHUB_OUTPUT
             - name: Deploying the code on Prod env
               if: steps.BStage.outputs.status == 'Pass'
               run: echo " ** Deployed on Prod env **"
