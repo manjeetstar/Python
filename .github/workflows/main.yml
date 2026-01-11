@@ -59,6 +59,3 @@ jobs:
             - name: Deploying the code on Prod env
               if: steps.BStage.outputs.status == 'Pass'
               run: echo " ** Deployed on Prod env **"
-            
-
-
