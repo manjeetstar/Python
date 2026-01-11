@@ -41,7 +41,9 @@ jobs:
             - name: caching creation for required softwares
               uses: actions/cache@v4
               with:
-                path: ~/.cache/pip
+                path: |
+                        ~\AppData\Local\pip\Cache
+                        ~/.cache/pip
                 key: pip-${{runner.os}}-${{hashFiles('requirements.txt')}}
             - name: Installing other softwares
               run: |
