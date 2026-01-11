@@ -48,6 +48,7 @@ jobs:
             - name: Installing other softwares
               run: |
                     pip install -r requirements.txt
+                    mkdir -p results
                     echo "Manjeet Singh" >> file-${{matrix.os}}-${{matrix.browsers}}.txt
             - name: Running Test code
               run: echo "Running the Test code"
