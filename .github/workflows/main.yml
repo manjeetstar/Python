@@ -4,6 +4,8 @@ on:
         branches: [ main ]
 jobs:
     build:
+        env:
+            NAME: 'Manjeet Singh'
         if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
         outputs:
             build_status: ${{steps.build_s.outputs.status}}
@@ -21,6 +23,7 @@ jobs:
               id: build_s
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
+                    echo $NAME
     test:       
         needs: [ build ]
         if: needs.build.result == 'success' && needs.build.outputs.build_status == 'GREEN'
