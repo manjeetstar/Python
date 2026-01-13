@@ -6,10 +6,13 @@ permissions:
     contents: read
 jobs:
     build:        
+        environment: Staging
         if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
+
         outputs:
             build_status: ${{steps.build_s.outputs.status}}
         runs-on: [ ubuntu-latest ]
+       
         steps:
             - name: Checking out repo code from the link
               uses: actions/checkout@v4
@@ -22,10 +25,11 @@ jobs:
             - name: Checking the build status
               env:
                 NAME: ${{secrets.OWNED_BY}}
+                URL: ${{ secrets.URL }}
               id: build_s
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
-                    echo $NAME
+                    echo $NAME                    
     test:       
         needs: [ build ]
         if: needs.build.result == 'success' && needs.build.outputs.build_status == 'GREEN'
