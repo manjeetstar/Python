@@ -2,6 +2,8 @@ name: Gitactions Learning Curve
 on:
     push:
         branches: [ main ]
+permissions:
+    contents: read
 jobs:
     build:        
         if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
