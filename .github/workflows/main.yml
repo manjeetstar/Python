@@ -7,6 +7,7 @@ permissions:
 jobs:
     build:        
         environment: Staging
+        timeout-minutes: 3
         if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
         outputs:
             build_status: ${{steps.build_s.outputs.status}}
