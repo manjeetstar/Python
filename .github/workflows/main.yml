@@ -72,6 +72,10 @@ jobs:
     deploy:
         runs-on: [ ubuntu-latest ]
         needs: [ build, test ]
+        permissions:
+            contents: read
+            pull-requests: write
+
         if: needs.test.result == 'success'
         steps:
             - name: Deploying the code on Staging env
@@ -82,3 +86,13 @@ jobs:
             - name: Deploying the code on Prod env
               if: steps.BStage.outputs.status == 'Pass'
               run: echo " ** Deployed on Prod env **"
+            - name: Adding comments on a PR
+              uses: actions/github-script@v7
+              with:
+                script: |
+                          await github.rest.issues.createComment({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            issue_number: context.issue.number,
+                            body: "PR reviewed and merged scuccessfully. Deployement done" 
+                          })
