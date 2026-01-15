@@ -7,7 +7,7 @@
 # Backend
 /backend/ @backend-team
 
-# Infrastructure (high risk)
+# Infrastructure (high risk1)
 /infra/ @devops-team
 
 # Shared libraries
