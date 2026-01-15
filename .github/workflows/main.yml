@@ -6,7 +6,6 @@ permissions:
     contents: read
 jobs:
     build:        
-        environment: Staging
         timeout-minutes: 3
         if: github.event.pull_request.base.ref == 'main' && startsWith(github.actor, 'manjeet')
         outputs:
@@ -23,8 +22,7 @@ jobs:
                 python-version: '3.11'    
             - name: Checking the build status
               env:
-                NAME: ${{secrets.OWNED_BY}}
-                URL: ${{ secrets.URL }}
+                NAME: ${{secrets.OWNED_BY}}                
               id: build_s
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
