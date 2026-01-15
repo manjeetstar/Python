@@ -1,7 +1,7 @@
 name: Gitactions Learning Curve
 on:
     pull_request:
-        branches: [ Status11 ]
+        branches: [ main ]
 permissions:
     contents: read
 jobs:
