@@ -1,0 +1,14 @@
+# Default fallback owner
+* @platform-team
+
+# Frontend
+/frontend/ @frontend-team
+
+# Backend
+/backend/ @backend-team
+
+# Infrastructure (high risk1)
+/infra/ @devops-team
+
+# Shared libraries
+/shared/ @platform-team
