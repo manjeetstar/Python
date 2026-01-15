@@ -1,14 +1,13 @@
 name: Gitactions Learning Curve
 on:
     pull_request:
-        branches: [ Status11 ]
+        branches: [ main ]
 permissions:
     contents: read
 jobs:
     build:        
-        environment: Staging
         timeout-minutes: 3
-        if: github.ref == 'refs/heads/main' && startsWith(github.actor, 'manjeet')
+        if: github.event.pull_request.base.ref == 'main' && startsWith(github.actor, 'manjeet')
         outputs:
             build_status: ${{steps.build_s.outputs.status}}
         runs-on: [ ubuntu-latest ]       
@@ -23,8 +22,7 @@ jobs:
                 python-version: '3.11'    
             - name: Checking the build status
               env:
-                NAME: ${{secrets.OWNED_BY}}
-                URL: ${{ secrets.URL }}
+                NAME: ${{secrets.OWNED_BY}}                
               id: build_s
               run: |
                     echo "status=GREEN" >> $GITHUB_OUTPUT
@@ -93,6 +91,6 @@ jobs:
                           await github.rest.issues.createComment({
                             owner: context.repo.owner,
                             repo: context.repo.repo,
-                            issue_number: context.issue.number,
+                            issue_number: context.payload.pull_request.number,
                             body: "PR reviewed and merged scuccessfully. Deployement done" 
                           });
