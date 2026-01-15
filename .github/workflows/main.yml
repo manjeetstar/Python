@@ -95,4 +95,4 @@ jobs:
                             repo: context.repo.repo,
                             issue_number: context.issue.number,
                             body: "PR reviewed and merged scuccessfully. Deployement done" 
-                          })
+                          });
