@@ -2,6 +2,7 @@ name: Gitactions Learning Curve
 on:
     pull_request:
         branches: [ main ]
+        branches-ignore: [ Start9 ]
 permissions:
     contents: read
 concurrency:
