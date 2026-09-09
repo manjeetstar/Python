@@ -1,7 +1,7 @@
-name: Gitactions Learning Curve
+\name: Gitactions Learning Curve
 on:
-    pull_request:
-        branches: [ main ]
+    pull_request
+        branches: [ release ]
 permissions:
     contents: read
 concurrency:
