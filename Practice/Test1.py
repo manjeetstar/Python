@@ -5,4 +5,4 @@ print(x)
 y=[1,2,4,5,7];
 z=["Manjeet", 30, "aprul", False]
 
-print(y, z)
+print(type(y), type(x))
