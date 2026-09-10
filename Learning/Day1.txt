@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4
+Today's Agenda : Chap2, Chap3, chap4, chap5
 
 Chap2: Variable, datatype
 *************************
@@ -39,4 +39,8 @@ Chap4: Input & Output
     * In print statement, we can use escape statements as well like \n, \t or for double quote like (\) etc
 	* input() Always Returns a String . if we require difference type, we can cast it accordingly.
 	* f-string : for formating string inside of print. No use of $, simply enclosed in {}
+	
+Chap5: Conditional Statements
+*****************************
+	* 
 	
