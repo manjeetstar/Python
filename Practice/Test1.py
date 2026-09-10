@@ -1,11 +1,7 @@
-import sys
+name="Manjeet"
+age=20
+isMarried=False
 
-x=sys.stdin.read();
-z=input("Enter your name:")
-print(x)
-print(z)
-y=[1,2,4,5,7];
-z=["Manjeet", 30, "aprul", False]
-
-print(type(y), type(x))
-sys.stdout.write(str(x));
+print(name, age, isMarried, sep=" : ", end =" ")
+print("Manjeet Singh")
+print(f"Name of candidate is {name} of age {age} and marital status is {isMarried}")

@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Operator
+Today's Agenda : Chap2, Chap3, chap4
 
 Chap2: Variable, datatype
 *************************
@@ -31,3 +31,12 @@ Chap3: Operators
 			*, /, //, %
 			+, -
 			<<, >>
+			
+Chap4: Input & Output
+*********************, 
+	* print bydefault at the end, goes to the new line and seperate input with space.
+	      print("Manjeet", 20, "Canada", sep=" | ", end =" ")  It will Output like Manjeet | 20 | Canada and next print statement will append within the same line itself.
+    * In print statement, we can use escape statements as well like \n, \t or for double quote like (\) etc
+	* input() Always Returns a String . if we require difference type, we can cast it accordingly.
+	* f-string : for formating string inside of print. No use of $, simply enclosed in {}
+	
