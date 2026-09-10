@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, 
+Today's Agenda : Chap2, Operator
 
 Chap2: Variable, datatype
 *************************
@@ -13,3 +13,7 @@ Chap2: Variable, datatype
 	** Why input() Needs Type Conversion? - Input always returns a string value. To consider it in different type, we need to change its type. Without conversion, it will consider it as string and string concatenation will happen.
 	* Multiple assignment : name, age, city = "Manjeet", 30, "Kolkata". We can assign the same value a = b = c = 0
 	* Python doesnt have constant variable. for convention, Constant variable are declared in capital letter. Its just a convention.
+	
+Chap3: Operators
+****************
+	* 
