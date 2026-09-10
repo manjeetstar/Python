@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7
 
 Chap2: Variable, datatype
 *************************
@@ -49,5 +49,41 @@ Chap6: Loops
 	* This is basically being used mainly
 			for i in range(start, end, step)
 			With for loop, else statement too, we can add for like mentioning Loop completed.
-	* 
+
+chap7: Strings
+**************
+	* Triple quotes(""") are being used for multi-line strings.
+	* Slicing - sequence[start : stop : step]
+		Start tells where to begin; stop tells where to stop; step tells which direction to move.		
+		If start is missing
+			Step is positive → start from the beginning.
+			Step is negative → start from the end.
+		If stop is missing
+			Step is positive → go until the end.
+			Step is negative → go until the beginning.
+		If both start and stop are missing
+			Step is positive → take the sequence from beginning to end.
+			Step is negative → take the sequence from end to beginning.
+			
+		Start is negative
+			start is counted from the end.
+			With positive step, movement is still left → right.
+			With negative step, movement is still right → left.
+		Stop is negative
+			stop is counted from the end.
+			With positive step, you move toward the right, stopping before that negative position.
+			With negative step, you move toward the left, stopping before that negative position.
+			
+		If step is missing, Python always uses +1.
+		
+	** As we know strings are immutable, we cannot modify the exisiting string. Instead we create a new string.
 	
+	* Repeating Strings - Use * means print("Manjeet" * 4) op will be ManjeetManjeetManjeetManjeet 		
+	* for search, we can use find() method. It Returns the index of the first occurrence.
+	
+	** String Formatting with Numbers
+			price = 1234.5678
+			print(f"Price: {price:.2f}") Here : is more important like you want to show numbers like 1,00,000
+		
+	
+				
