@@ -1,2 +1,15 @@
 Agenda- Chapter(s)
 *****************
+Today's Agenda : Chap2, 
+
+Chap2: Variable, datatype
+*************************
+	* Python determines the variable type at runtime.
+	* list uses [], tuple uses (), set and dict uses {} and NoneType as none.
+	* Python supports complex numbers like 3+4j Here 3 is real and j is imaginary.
+	* List, set & dict is Mutable and Tuple, int, float, str, bool is immutable.
+	* None represents the absence of a value.
+	* type method is being used to knowing the type of variable.
+	** Why input() Needs Type Conversion? - Input always returns a string value. To consider it in different type, we need to change its type. Without conversion, it will consider it as string and string concatenation will happen.
+	* Multiple assignment : name, age, city = "Manjeet", 30, "Kolkata". We can assign the same value a = b = c = 0
+	* Python doesnt have constant variable. for convention, Constant variable are declared in capital letter. Its just a convention.
