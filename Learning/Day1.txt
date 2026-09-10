@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6
 
 Chap2: Variable, datatype
 *************************
@@ -42,5 +42,12 @@ Chap4: Input & Output
 	
 Chap5: Conditional Statements
 *****************************
+	* if ... elif ... else [Indentation is required ]
+	
+Chap6: Loops
+************
+	* This is basically being used mainly
+			for i in range(start, end, step)
+			With for loop, else statement too, we can add for like mentioning Loop completed.
 	* 
 	
