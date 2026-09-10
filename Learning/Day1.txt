@@ -16,4 +16,18 @@ Chap2: Variable, datatype
 	
 Chap3: Operators
 ****************
-	* 
+	* An operator is a symbol or keyword used to perform an operation on values or variables.
+	* Membership Operators - Used to check whether a value exists inside a sequence such as a string, list, tuple, etc.
+		[in] and [not in]
+	* Identity Operator - Used to check whether two variables refer to the same object.
+		[is] and [is not] [ In python , like JS, there is no ===, it has only == for checking equality/value comparision ]
+	* Bitwise Operation - &(And), |(Or) , ^(XOR), ~(Bitwise Not), <<(left shift) and >>(right shift)
+	* Unary Operator - An operator works on a single value.
+	
+	** Operator precedence - 
+			()
+			**
+			+x, -x, ~x
+			*, /, //, %
+			+, -
+			<<, >>
