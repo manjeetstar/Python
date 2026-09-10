@@ -14,3 +14,10 @@ elif age>5 and age<20:
     print("Age is greater than 5 but lesser than 20")
 else:
     print("God know that whats the age of candidate")
+
+for ctr in range(1,30,2):
+    print(ctr, sep=" - ", end=" ")
+else:
+    print("Loop completed")
+
+print("Above was example of conditional and looping functionality")
