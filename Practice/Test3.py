@@ -1,5 +1,5 @@
-ctr= [10,20,30,40,"Manjeet Singh", [11,12,3,45,5,6]]
-ctr1=(10,203,"Manjeet",[2,3,4,5],10)
-print(ctr1.count(10))
-
-print(type(ctr))
+ctr={12, "Manjeet", False, 203,66, 12}
+ctr1={"Manjeet",120,20, False}
+ctr.add(125)
+print(ctr)
+print(ctr - ctr1)
