@@ -88,7 +88,7 @@ chap7: Strings
 ***
 		List   → ordered + indexed
 		Tuple  → ordered + indexed
-		Set    → unordered + no indexing
+		Set    → unordered + no indexing + Unique(No Duplicate)
 
 Chap8: Lists
 ************
@@ -155,4 +155,21 @@ Chap10: Sets
 	* A set does not maintain elements using indexes like a list or tuple.
 	*** Python sets can contain different types of values, but there is one important rule:
 		Every element in a set must be hashable. integers, strings, booleans, and floats can all coexist. But a list, dist and set, cannot be an element of a set.
+		
+		
+	* Overall Summary
+		1. Set uses { }.
+		2. Empty set is set(), NOT {}.
+		3. Set stores unique elements.
+		4. Set is unordered.
+		5. Set does not support indexing.
+		6. Set is mutable.
+		7. add() adds one element.
+		8. update() adds multiple elements.
+		9. remove() gives an error if the element doesn't exist.
+		10. discard() does not give an error if the element doesn't exist.
+		11. pop() removes an arbitrary element.
+		12. Sets support union, intersection, difference and symmetric difference.
+		13. Set elements must be hashable.
+		14. Lists cannot be set elements, but tuples can be.
 				
