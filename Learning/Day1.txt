@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9, chap10
 
 Chap2: Variable, datatype
 *************************
@@ -84,10 +84,15 @@ chap7: Strings
 	** String Formatting with Numbers
 			price = 1234.5678
 			print(f"Price: {price:.2f}") Here : is more important like you want to show numbers like 1,00,000
+			
+***
+		List   → ordered + indexed
+		Tuple  → ordered + indexed
+		Set    → unordered + no indexing
 
 Chap8: Lists
 ************
-	* A list is an ordered collection of lists. A list can contain different types of values.
+	* A list is an ordered and indexed collection of lists. A list can contain different types of values. Indexed means we can retrieve value based on index.
 	* Its Mutable in nature.
 	* various methods are allowed...
 		* extend: Append a list to a list. 
@@ -121,7 +126,7 @@ Chap8: Lists
 		
 Chap9: Tuple
 ************
-	* Same as list but its immutable. Single-Element Tuple will not be considered as tuple. it will be considered as int/str etc.
+	* Ordered and indexed. Same as list but its immutable. Single-Element Tuple will not be considered as tuple. it will be considered as int/str etc. Indexed means we can retrieve value based on index.
 	* A tuple is an ordered collection of lists. A Tuple can contain different types of values.
 	* The tuple itself is immutable, but the list inside it is mutable. So we can change it even though its immutable.
 	* Methods -
@@ -141,4 +146,13 @@ Chap9: Tuple
 		8. Tuple supports count() and index()
 		9. Tuple supports packing and unpacking
 		10. Tuple can contain mutable objects such as lists
+		
+Chap10: Sets
+************
+	* A set is unordered, unique elements(Duplicates are automatically removed) only and mutable.
+	** x = {} Its not a set, it will be considered as dictionary. 
+	   For creating an empty set , x = set()
+	* A set does not maintain elements using indexes like a list or tuple.
+	*** Python sets can contain different types of values, but there is one important rule:
+		Every element in a set must be hashable. integers, strings, booleans, and floats can all coexist. But a list, dist and set, cannot be an element of a set.
 				
