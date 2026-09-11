@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9
 
 Chap2: Variable, datatype
 *************************
@@ -118,4 +118,27 @@ Chap8: Lists
 		15. copy() creates a separate shallow copy
 		16. List can contain another list
 		17. List comprehension creates lists compactly
+		
+Chap9: Tuple
+************
+	* Same as list but its immutable. Single-Element Tuple will not be considered as tuple. it will be considered as int/str etc.
+	* A tuple is an ordered collection of lists. A Tuple can contain different types of values.
+	* The tuple itself is immutable, but the list inside it is mutable. So we can change it even though its immutable.
+	* Methods -
+		Count(<item>) - it gives the frequency of an element in tuple.
+		index(<item>) - Returns the first occurence of an element.
+		We can convert a list to a tuple using tuple(). tuple(<list reference>)
+		sorted() returns a list, even when you give it a tuple.
+		
+	* Overall Summary
+		1. Tuple uses ( )
+		2. Tuple is ordered
+		3. Index starts from 0
+		4. Negative indexing starts from -1
+		5. Tuple supports slicing
+		6. Tuple is immutable
+		7. Single-element tuple requires a comma
+		8. Tuple supports count() and index()
+		9. Tuple supports packing and unpacking
+		10. Tuple can contain mutable objects such as lists
 				
