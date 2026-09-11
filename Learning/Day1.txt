@@ -87,6 +87,35 @@ chap7: Strings
 
 Chap8: Lists
 ************
-	* 
-	
+	* A list is an ordered collection of lists. A list can contain different types of values.
+	* Its Mutable in nature.
+	* various methods are allowed...
+		* extend: Append a list to a list. 
+		* pop : Removes an item by index and returns that item.
+		* sort : numbers.sort(reverse=True) // It changes the original list and its permanent until the scope is there.
+		* sorted : Creates and returns a new sorted list.
+	* Nested List - A list can contain an array of list too...
+	* List concatenation - we can add 2 list by using + operator.
+	* copy - For creating a new copy of list.
+	* Unpacking a List - a, b, c = numbers [where number=[10,20,30]]
+	  we can collect multiple list items in a variable using *
+	  like a, *b = number //Now a=10, b=[20,30]
+	* Overall Summary -
+		1. List uses [ ]
+		2. List is ordered
+		3. Index starts from 0
+		4. Negative indexing starts from -1
+		5. List supports slicing
+		6. List is mutable
+		7. append() adds one item
+		8. extend() adds multiple items
+		9. insert() adds at a specific index
+		10. remove() removes by value
+		11. pop() removes by index
+		12. sort() modifies the list
+		13. sorted() returns a new sorted list
+		14. reverse() modifies the list
+		15. copy() creates a separate shallow copy
+		16. List can contain another list
+		17. List comprehension creates lists compactly
 				
