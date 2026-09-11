@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8
 
 Chap2: Variable, datatype
 *************************
@@ -84,6 +84,9 @@ chap7: Strings
 	** String Formatting with Numbers
 			price = 1234.5678
 			print(f"Price: {price:.2f}") Here : is more important like you want to show numbers like 1,00,000
-		
+
+Chap8: Lists
+************
+	* 
 	
 				
