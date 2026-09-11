@@ -154,8 +154,28 @@ Chap10: Sets
 	   For creating an empty set , x = set()
 	* A set does not maintain elements using indexes like a list or tuple.
 	*** Python sets can contain different types of values, but there is one important rule:
-		Every element in a set must be hashable. integers, strings, booleans, and floats can all coexist. But a list, dist and set, cannot be an element of a set.
-		
+		Every element in a set must be hashable. tuple, integers, strings, booleans, and floats can all coexist as all are immutable. But a list, dist and set, cannot be an element of a set.
+	* Methods:
+		Update(): for adding multiple elements into it
+		remove() - remove an element. if not present , then it will throw keyError 
+		discard() - same as remove but no error in case element is absent
+		pop() - remove any arbitary element.
+		clear() - clear all the sets
+		Sets support mathematical operations such as:
+			Union - Union means all elements from both sets, with duplicates removed. A U B
+			Intersection - Intersection means elements common to both sets. A & B
+			Difference - Difference means elements that are in the first set but not in the second. A - B
+			Symmetric Difference - Elements that are in either set, but not in both. A ^ B
+
+				A | B  → EVERYTHING
+				A & B  → COMMON
+				A - B  → ONLY A
+				A ^ B  → NOT COMMON
+				
+			Subset - A set A is a subset of B if every element of A exists in B. print(A.issubset(B))
+			Superset - Here B is superset of A. print(B.superset(A))
+			Disjoint - Two sets are disjoint when they have no common elements. print(A.isdisjoint(B))
+			
 		
 	* Overall Summary
 		1. Set uses { }.
