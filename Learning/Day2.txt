@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap13
+Today's Agenda : chap13, chap14
 
 Chap13: Functions
 *****************
@@ -10,8 +10,9 @@ Chap13: Functions
 	* Keyword arguments - student(age=25, name="Manjeet") . The order doesn't matter when using keywords. 
 	  *** But positional arguments must come before keyword arguments.
 	  
-	* Sometimes we don't know how many arguments a function will receive. We use *args ... args collects the arguments into a tuple.
-	  *args → variable number of positional arguments
+	* Sometimes we don't know how many arguments a function will receive. 
+	  ** We use *args ... args collects the arguments into a tuple. args is just a variable, we can give any name.
+	   *args → variable number of positional arguments
 	  
 	* **kwargs is used when we want to accept a variable number of keyword arguments. kwargs collects them into a dictionary. We can use both together too.
 	
@@ -21,3 +22,49 @@ Chap13: Functions
 		print(square(5)) // 25
 		
 	* Docstrings - A function can contain documentation describing what it does. The text inside """...""" is called a docstring. we can view it as <fun_name>.__doc__
+	
+Chap14: Function Arguments — Deep Dive
+**************************************
+	* A parameter is the variable defined in the function. An argument is the actual value passed when calling the function.
+	* Default Parameters Must Come After Non-Default Parameters 	
+	** *args vs **kwargs : means args take positional argument and kwargs takes keyword arguments.
+	* Sequence of passing arguments
+			1. Normal parameters
+			2. Default parameters
+			3. *args
+			4. Keyword-only parameters
+			5. **kwargs
+			
+	* Positional-Only Parameters / : def add(x, y, /) - Everything before / must be passed positionally.
+	  why? can change the internal parameter names later without allowing callers to depend on those names.	
+		add(x=10, y=20) Later if dev changes the variable name, caller doesnt need to know the exact variable name.
+		
+	* Keyword-only parameters * : def student(name, *, age): It means everything after * is keyword-only.
+	*   *args → collect positional arguments
+		*     → mark following parameters as keyword-only
+		
+	* Unpacking a Tuple - suppose if we have a tuple(ctr) with 3 values and there is a method calculate(), accepts 3 parameters, so while calling the method, we can pass it like calculate(*ctr)
+	  Same with unpacking dictionary as well... 
+			def student(name, age):
+				print(name, age)
+
+			data = {
+				"name": "Manjeet",
+				"age": 42
+			}
+			student(**data)
+
+		| Syntax     | Meaning                      |
+		| ---------- | ---------------------------- |
+		| `*args`    | Collect positional arguments |
+		| `**kwargs` | Collect keyword arguments    |
+		| `*values`  | Unpack iterable              |
+		| `**data`   | Unpack dictionary            |
+
+	** Python Passes Object References if we pass some object.
+	
+	* Reassignment → changes what the local variable refers to
+	  Mutation     → changes the object itself
+	  
+	** Immutable vs Mutable Arguments : Immutable will not change but mutable will change. if variable is global, changed local state will not reflect.
+	*** Python passes object references by assignment.
