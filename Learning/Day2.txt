@@ -4,4 +4,20 @@ Today's Agenda : chap13
 
 Chap13: Functions
 *****************
-	* 
+	* We can return multiple values from a function.
+	* Default parameter - A parameter can have a default value. we can skip passing the value of this parameter and it will pick default value.
+	* Positional Argument - When values are passed according to their position. student("Manjeet", 25)
+	* Keyword arguments - student(age=25, name="Manjeet") . The order doesn't matter when using keywords. 
+	  *** But positional arguments must come before keyword arguments.
+	  
+	* Sometimes we don't know how many arguments a function will receive. We use *args ... args collects the arguments into a tuple.
+	  *args → variable number of positional arguments
+	  
+	* **kwargs is used when we want to accept a variable number of keyword arguments. kwargs collects them into a dictionary. We can use both together too.
+	
+	* Type of variables, local, global(with global keyword). Variable scope is LEGB (local, enclosing, global & built-in)
+	* Lambda function - Its an annonymous function. lambda arguments: expression
+		square = lambda x: x * x
+		print(square(5)) // 25
+		
+	* Docstrings - A function can contain documentation describing what it does. The text inside """...""" is called a docstring. we can view it as <fun_name>.__doc__
