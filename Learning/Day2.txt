@@ -91,3 +91,10 @@ Chap15. Scope & Namespace
 			for      → no separate function-like scope
 			while    → no separate function-like scope
 			function → creates local scope
+			
+	* Core Summary
+		Namespace = collection/mapping of names to objects.
+		Scope = where a name can be accessed.
+		LEGB = Local → Enclosing → Global → Built-in.
+		global lets a function work with a global variable.
+		nonlocal lets a nested function work with a variable from an enclosing function.
