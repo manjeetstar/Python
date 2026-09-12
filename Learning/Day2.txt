@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap13, chap14
+Today's Agenda : chap13, chap14, chap15
 
 Chap13: Functions
 *****************
@@ -68,3 +68,26 @@ Chap14: Function Arguments — Deep Dive
 	  
 	** Immutable vs Mutable Arguments : Immutable will not change but mutable will change. if variable is global, changed local state will not reflect.
 	*** Python passes object references by assignment.
+	
+Chap15. Scope & Namespace
+*************************
+	* 	L → Local
+		E → Enclosing
+		G → Global
+		B → Built-in
+	* Built-in methods - len,print,sum,type,range
+	* globals() gives global namespace variable while locals gives local namespace.
+	* To modify global variable, we can use global keyword and can reassign anypart of the code.
+		global : Go to the global scope. Modifying global variable value anywhere with global keyword.
+		non-local : Go to the nearest enclosing function. The nonlocal keyword is used inside a nested function when you want to modify a variable that belongs to the outer (enclosing) function.
+		
+		global  → outside all functions
+		nonlocal → outside the current nested function, but inside another function
+		local   → current function
+		
+		** Unlike functions, if, for, and while do not normally create their own local scope in Python.
+		** Function Creates Scope
+			if       → no separate function-like scope
+			for      → no separate function-like scope
+			while    → no separate function-like scope
+			function → creates local scope

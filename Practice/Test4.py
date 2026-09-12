@@ -28,3 +28,19 @@ def display(d,y):
    return d, y
 
 print(display(d,e))
+
+print("Golbal namespace are ", globals()["e"])
+
+y=20
+def function1():
+    x=10
+    def function2():
+       global y
+       y=30
+       nonlocal x
+       x=20
+       print(x, y)
+    function2()
+    print(x, y)
+
+function1()
