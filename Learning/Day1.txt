@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9, chap10
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9, chap10, chap11
 
 Chap2: Variable, datatype
 *************************
@@ -174,8 +174,7 @@ Chap10: Sets
 				
 			Subset - A set A is a subset of B if every element of A exists in B. print(A.issubset(B))
 			Superset - Here B is superset of A. print(B.superset(A))
-			Disjoint - Two sets are disjoint when they have no common elements. print(A.isdisjoint(B))
-			
+			Disjoint - Two sets are disjoint when they have no common elements. print(A.isdisjoint(B))			
 		
 	* Overall Summary
 		1. Set uses { }.
@@ -192,4 +191,8 @@ Chap10: Sets
 		12. Sets support union, intersection, difference and symmetric difference.
 		13. Set elements must be hashable.
 		14. Lists cannot be set elements, but tuples can be.
+		
+Chap11: Dictionary
+******************
+	* 
 				
