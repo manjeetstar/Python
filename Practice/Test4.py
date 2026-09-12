@@ -7,7 +7,24 @@ def calculate(*args, **kwargs):
    return total
 
 print("Total is ", calculate(10,20,30, name="Manjeet", address="Canada"))
-print(calculate.__doc__)
 
-square=lambda x: x*x
-print(square(19))
+def display(a,b,c,d):
+   print("The values are ", a,b,c,d)
+
+a={
+   "a":10,
+   "b":20,
+   "c":30,
+   "d":40
+}
+display(**a)
+
+d=10
+e=[1,2,3,4]
+def display(d,y):
+   d=d+1
+   y.append(15)
+
+   return d, y
+
+print(display(d,e))
