@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9, chap10, chap11
+Today's Agenda : Chap2, Chap3, chap4, chap5, chap6, chap7, chap8, chap9, chap10, chap11, chap12
 
 Chap2: Variable, datatype
 *************************
@@ -210,3 +210,25 @@ Chap11: Dictionary
 		keys(), values(), and items() are used to retrieve dictionary views.
 		Dictionaries are mutable, so their contents can be changed after creation.
 		An empty {} creates an empty dictionary.
+		
+chap12: Comprehension
+*********************
+	* Comprehension Cheat sheet (For List/Set/Dict)
+	
+		| Type                | Syntax                                        |
+		| ------------------- | --------------------------------------------- |
+		| List                | `[expression for x in iterable]`              |
+		| List + filter       | `[expression for x in iterable if condition]` |
+		| List + if-else      | `[a if condition else b for x in iterable]`   |
+		| Set                 | `{expression for x in iterable}`              |
+		| Set + filter        | `{expression for x in iterable if condition}` |
+		| Dictionary          | `{key: value for x in iterable}`              |
+		| Dictionary + filter | `{key: value for x in iterable if condition}` |
+		| Generator           | `(expression for x in iterable)`              |
+	
+	** Nested List Comprehension	
+		ctr2 =[ b*b for b in [ a for a in ctr if a%2 ==0 ]]
+		print(ctr2)
+	** List vs Set comprehension [ basically it depends on braces ]
+		[ ... ]   → list comprehension
+		{ ... }   → set comprehension
