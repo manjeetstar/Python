@@ -194,5 +194,19 @@ Chap10: Sets
 		
 Chap11: Dictionary
 ******************
-	* 
-				
+	* A dictionary is a Python data structure used to store data in key–value pairs.
+	* We access a dictionary using its key, not a numerical index. if key is not present, will result keyError. But when we use .get() method, it doesnt throw any error.
+	* Dictionary keys must be of a hashable/immutable type. Rest wont be allowed like list, set. Dictionary is allowed. Keys is only immutable but value can be mutable.
+	* update() method adds new items or changes existing items.
+	* We can create a dictionary using the dict() function: student = dict(name="Rahul", age=20)
+	** Overall Summary
+		Dictionary stores data as key-value pairs.
+		Keys must be unique.
+		Keys must be immutable/hashable; values can be of almost any Python type.
+		Dictionary is accessed using keys, not numerical indexes.
+		If a key already exists, assigning a value updates it.
+		If a key doesn't exist, assigning a value adds a new item.
+		in checks keys by default.
+		keys(), values(), and items() are used to retrieve dictionary views.
+		Dictionaries are mutable, so their contents can be changed after creation.
+		An empty {} creates an empty dictionary.
