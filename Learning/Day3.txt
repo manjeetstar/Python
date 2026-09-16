@@ -1,3 +1,35 @@
 Agenda- Chapter(s)
 *****************
 Today's Agenda : chap17
+
+Chapp17: Exception Handling
+***************************
+	* try..except..else..finally , like JS/TS, it also supports else.
+	* Most normal runtime exceptions derive from Exception(Parent class).
+	
+	* to raise an except, we can use keyword Raise...
+	* assert vs raise: assert → mainly for developer assumptions/invariants. raise → explicitly report an application error.
+	* raise vs raise e
+		raise - Python re-raises the current exception while preserving its traceback.
+		raise e - explicitly raises the exception object again and can affect how the traceback is presented.
+		
+	* we can use return statement as well. The finally block executes before the function actually returns.
+	* Bare except vs except Exception - Bare except catches everything. 
+	* Exception Handling hierarchy
+		BaseException
+				│
+				├── KeyboardInterrupt
+				├── SystemExit
+				├── GeneratorExit
+				│
+				└── Exception
+					│
+					├── ValueError
+					├── TypeError
+					├── KeyError
+					├── IndexError
+					├── FileNotFoundError
+					├── ZeroDivisionError
+					└── ...
+	* In except, we cannot add Exception first and then its subclass. 
+	* Multiple exceptions - except (ValueError, TypeError):
