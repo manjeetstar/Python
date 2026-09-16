@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap13, chap14, chap15
+Today's Agenda : chap13, chap14, chap15, chap16
 
 Chap13: Functions
 *****************
@@ -98,3 +98,41 @@ Chap15. Scope & Namespace
 		LEGB = Local → Enclosing → Global → Built-in.
 		global lets a function work with a global variable.
 		nonlocal lets a nested function work with a variable from an enclosing function.
+		
+Chap16: Modules and Packages
+****************************
+	* if __name__ == "__main__":
+	means "Run the following code only when this Python file is run directly, not when it is imported by another file."
+	In layman terms,
+		is simply checking:
+			"Am I being run directly?"
+			
+	* Package vs Module vs file
+		Package
+		   ↓
+		folder containing related Python modules
+
+		Module
+		   ↓
+		Python file
+		
+	* what is __init__.py and why do we need it?
+		Think of __init__.py as a special file that tells Python: "Treat this folder as a Python package."
+		__init__ means initialize. When Python imports a package, __init__.py can contain code that should run when that package is imported.
+		what __init__.py actually holds, it can hold normal Python code that belongs to the package.
+			Think of it as the package's starting/initialization file.
+		
+		We can keep it empty or 
+			from .add import add
+			from .subtract import subtract
+	8 __name__
+		  ↓
+		name of the current module
+
+		__main__
+		  ↓
+		used when a file is run directly
+
+		__init__.py
+		  ↓
+		package initialization/package marker file
