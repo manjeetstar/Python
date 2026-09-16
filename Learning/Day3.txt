@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap17
+Today's Agenda : chap17, chap18
 
 Chapp17: Exception Handling
 ***************************
@@ -33,3 +33,26 @@ Chapp17: Exception Handling
 					└── ...
 	* In except, we cannot add Exception first and then its subclass. 
 	* Multiple exceptions - except (ValueError, TypeError):
+	
+Chap18: File Handling
+*********************
+	* read(means all), readLine, write(will delete prev content), writeLines(Multiple lines), append (at the end)
+	* "w" if file is not present, it will create a newer one. "x" create mode, if file exists, fileExists exception
+	* read, seek(move the cursir), tell(current position)
+	* Important Packages - PathLib, JSON, csv
+	* for JSON, load mean read, dump means write into file
+		with open("user.json", "w") as file:
+		json.dump(user, file, indent=4)
+		
+	* load vs loads - one is read from file and another is from string
+	  dump vs dumps - one is write into file and another is writing into string.
+	  
+	  For CSV, dictReader for reading and writer for writing.
+	* Pathlib, unlink() deletes the file.
+	** File handling exception
+			FileNotFoundError
+			PermissionError
+			FileExistsError
+			IsADirectoryError
+			NotADirectoryError
+			UnicodeDecodeError
