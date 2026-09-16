@@ -1,5 +1,5 @@
 from pathlib import Path
-import json
+import json, csv
 
 try:
     with open("../test.txt", "w") as file:
@@ -22,3 +22,12 @@ with open("../test1.json", "a") as file:
 
 for file in Path(".").rglob("*.py"):
     print(file)
+
+
+with open("test.csv", "r") as file:
+    reader= csv.DictReader(file)
+    for row in reader:
+        print(row)
+        name=row["name"]
+        id=row["id"]
+        print(name, id)
