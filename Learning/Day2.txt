@@ -137,6 +137,30 @@ Chap16: Modules and Packages
 		  ↓
 		package initialization/package marker file
 		
+	** Modules Are Executed Once. Python normally doesn't execute the module twice in the same process. Python caches imported modules in: sys.module
+	
+	** when we import module, these are the steps python performs...
+		import module
+			 ↓
+		Find module
+			 ↓
+		Load module
+			 ↓
+		Create namespace
+			 ↓
+		Execute top-level code
+			 ↓
+		Create functions/classes/variables
+			 ↓
+		Store in sys.modules
+			 ↓
+		Make module available to your program
+		
+		import does not mean "only bring the functions into my program." It means load and execute the module once, then make its contents available.
+	** If we call the functions at the top level means function body is present and we are calling it too like
+			def display():
+				print("This is Manjeet")
+			display() then this will be considered as top level body and it will be executed as we import the module.
 	** def add(a, b):
 		return a + b
 
