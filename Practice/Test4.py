@@ -1,3 +1,6 @@
+
+print("This is at the top of the module")
+
 def calculate(*args, **kwargs):
    """ This method is being used for calculating unknown arguments and keyword arguments"""
    total=0
@@ -6,7 +9,7 @@ def calculate(*args, **kwargs):
    print(f"Employee with name {kwargs["name"]} resides at {kwargs["address"]} ")    
    return total
 
-print("Total is ", calculate(10,20,30, name="Manjeet", address="Canada"))
+# print("Total is ", calculate(10,20,30, name="Manjeet", address="Canada"))
 
 def display(a,b,c,d):
    print("The values are ", a,b,c,d)
@@ -17,7 +20,7 @@ a={
    "c":30,
    "d":40
 }
-display(**a)
+# display(**a)
 
 d=10
 e=[1,2,3,4]
@@ -27,7 +30,7 @@ def display(d,y):
 
    return d, y
 
-print(display(d,e))
+# print(display(d,e))
 
 print("Golbal namespace are ", globals()["e"])
 
@@ -43,4 +46,10 @@ def function1():
     function2()
     print(x, y)
 
-function1()
+# function1()
+
+def function2(x,y):
+   return x+y
+
+if __name__ =="__main__":
+   print(f"Sum is {function2(5,11)}")
