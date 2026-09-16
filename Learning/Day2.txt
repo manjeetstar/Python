@@ -125,7 +125,7 @@ Chap16: Modules and Packages
 		We can keep it empty or 
 			from .add import add
 			from .subtract import subtract
-	8 __name__
+	* __name__
 		  ↓
 		name of the current module
 
@@ -136,3 +136,13 @@ Chap16: Modules and Packages
 		__init__.py
 		  ↓
 		package initialization/package marker file
+		
+	** def add(a, b):
+		return a + b
+
+		if __name__ == "__main__":
+			print(add(10, 20))
+	   Now if we execute python calculator.py , it will be executed as its the current file and means "Run this code only when I directly run this file, not when someone imports this file."
+	   
+	* Why Virtual Environments? Installing everything globally can cause conflicts. Virtual environment gives its specific dependencies and which has no conflict with other packages.
+	* __init__.py vs __init__() Here __init__.py is a specific which tells "consider this folder as package".. __init__() its like a consitructor as defined within the class.
