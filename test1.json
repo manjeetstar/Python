@@ -1,14 +1,1 @@
-{
-     "addressline1": "Canada",
-     "addressline2": "Valcouver",
-     "zipcode": 20202,
-     "4": "Manjeet Singh",
-     "famous": [
-          1,
-          32,
-          4,
-          5,
-          3,
-          65
-     ]
-}
+{"name": "Manjeet", "age": 42, "role": "QA"}{"name": "Awatar", "age": 421, "role": "Dev"}{"name": "Awatar", "age": 421, "role": "Dev"}{"name": "Awatar", "age": 421, "role": "Dev"}
