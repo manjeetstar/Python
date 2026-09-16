@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap17, chap18
+Today's Agenda : chap17, chap18, chap19
 
 Chapp17: Exception Handling
 ***************************
@@ -56,3 +56,19 @@ Chap18: File Handling
 			IsADirectoryError
 			NotADirectoryError
 			UnicodeDecodeError
+			
+Chap19: JSON
+************
+	* Python Dict vs JSON (Case sensitive part)
+		| Python                | JSON        |
+		| --------------------- | ----------- |
+		| `True`                | `true`      |
+		| `False`               | `false`     |
+		| `None`                | `null`      |
+		| Usually Python `dict` | JSON object |
+		| Python `list`         | JSON array  |
+	
+	* Serialization - Converting Python object → JSON: json.dumps(data)
+	  Deserialization - Converting JSON → Python object: json.loads(json_data)
+	  
+	  Dump means writing and load means read.. So what we dump , python object to JSON file and JSON file to python file while reading. Vice versa with String as well.
