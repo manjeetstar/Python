@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap17, chap18, chap19
+Today's Agenda : chap17, chap18, chap19, chap20
 
 Chapp17: Exception Handling
 ***************************
@@ -72,3 +72,33 @@ Chap19: JSON
 	  Deserialization - Converting JSON → Python object: json.loads(json_data)
 	  
 	  Dump means writing and load means read.. So what we dump , python object to JSON file and JSON file to python file while reading. Vice versa with String as well.
+	  
+Chap20: CSV
+***********
+	* CSV writer
+		with open("users.csv", "a", newline="") as file:
+			writer = csv.writer(file) //It creates a CSV writer object associated with that file.
+			writer.writerow([4, "Michael", 40])
+			
+	  CSV reader
+		with open("users.csv") as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+		
+	* csv.reader vs csv.DictReader
+		csv.reader access by index. whereas css.dictReader by column name.
+		*** So CSV has reader, DictReader, writer and DictWriter and difference among them is access by index or by column name.
+		
+	* with open("data.csv", "w", newline="") as file:
+
+			writer = csv.DictWriter(
+				file,
+				fieldnames=["id", "name"]
+			)
+
+			writer.writeheader()
+
+			writer.writerow({
+				"id": 1,
+				"name": "John"
+			})
