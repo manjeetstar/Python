@@ -41,6 +41,9 @@ class Employee1(Employee):
     def absfunction(self):
         print("This is the abstract method implemented in the subclass by ", self.name)
 
+    def __str__(self):
+        return f"Employee Name is {self.name}"
+
 emp=Employee1("Manjeet",20, 214)
 emp.display()
 Employee1.calculate()
@@ -50,4 +53,6 @@ emp.absfunction()
 emp.phoneno="9899769493"
 print("Phone number is ", emp.phoneno)
 print(emp._Employee__phoneno)
-        
+
+print(Employee1.__mro__)
+print(emp.__dict__)
