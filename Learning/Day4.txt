@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap21, chap22
+Today's Agenda : chap21, chap22, chap23
 
 Chap21:  Object-Oriented Programming
 ************************************
@@ -25,6 +25,8 @@ Chap21:  Object-Oriented Programming
 
 				@age.setter
 				def age(self, value):
+				
+		** we can delete any of property using del <Class_Name>.<Property_Name>
 				
 	* Inheritence
 	* Polymorphism
@@ -86,4 +88,58 @@ Chap22: OOP — Core Principles
 	* Method Overloading - Python does not support traditional method overloading like Java. The key reason is that Python treats a function/method name as a single name in a class namespace. It doesn't maintain multiple versions of the same method based on parameter count/types like Java does.
 		** Python doesn't support traditional method overloading because defining a method with the same name again replaces the previous definition in the class namespace. Since Python is dynamically typed, it instead commonly uses default arguments, *args, **kwargs, or runtime dispatch to achieve similar behavior.
 	
-	* 
+Chap23. Advanced OOP
+********************
+	* MRO (Method resolution order), its like (<class '__main__.Employee1'>, <class '__main__.Employee'>, <class 'abc.ABC'>, <class 'object'>)
+	  Why MRO gives Object at the end? Every normal Python class ultimately inherits from object. Think of object as the root/base class. Because object provides fundamental behavior that all Python objects have, such as methods related to: all dunder functionalities.
+	  
+	* Diamond problem
+		       A
+			  / \
+			 B   C
+			  \ /
+			   D
+	When D calls show(), should Python use B → A or C → A? Python solves this using MRO + C3 linearization. It follows linear approach, D → B → C → A → object
+	* Deep meaning of Super() - super() means: Continue method lookup according to the MRO from the current class. super() does not have to be the first line of a method. It can be used at any point where you need to call the next implementation in the MRO.
+	
+	* Dunder methods : Methods with __<MethodName>__ are called dunder methods. They allow your objects to behave like built-in Python objects.
+	  If __str__ isn't defined, Python can fall back to __repr__.
+	  
+	  **** def __add__(self, other):
+             return Number(self.value + other.value)
+		 
+	    a = Number(10)
+		b = Number(20)
+		
+		c = a + b Here python changes it to a.__add__(b) where a is self and b is other. Both object holds its instance variable value. This is called operator overloading using dunder methods.
+		
+	* Mixins - A mixin is a small class designed to provide reusable functionality.
+			class LoggingMixin:
+				def log(self, message):
+					print(f"[LOG] {message}")
+
+			class Employee(LoggingMixin):
+				def work(self):
+					self.log("Employee started working")
+					
+			emp = Employee()
+			emp.work() Here emp is self and LoggingMixin is inherited in Employee so Employee's object can access log method.
+			
+	* Dataclasses - Python provides dataclasses to reduce boilerplate for data-oriented classes. (More like Lombok in Java)
+	
+		from dataclasses import dataclass
+
+		@dataclass
+		class Employee:
+			name: str
+			age: int
+			salary: float=2000
+			
+		Now emp = Employee("Manjeet", 30, 80000)
+			print(emp)
+			
+		We dont need initialization and few of dunder methods like __str__/__repr__/__eq__
+		
+		** we can set default value too while defining dataclass like we did for salary default value as 2000.
+		** Frozen - We can turn instance immutable. @dataclass(frozen=true) .This is useful when you want objects whose state shouldn't change after creation.
+			
