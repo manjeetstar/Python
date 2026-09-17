@@ -4,4 +4,69 @@ Today's Agenda : chap21
 
 Chap21:  Object-Oriented Programming
 ************************************
-	*
+	* A class can have
+		- Instance attribute/variables: which are declared inside constructor with self. name is still an instance attribute, even though the assignment appears inside the class definition.
+		- Instance Methods [ Need to add self as parameter ]
+		- Class variables : A class variable belongs to the class, rather than being unique to each object. Declared inside the class, not initialized with Self. Each instance of a class, can access it , its common to all the objects.
+		- Class methods : [ Need to add self as parameter ] It can access class variable.
+		- Static method: It is declared with no self or cls. It belongs to the class , can consider it as utility function. Yes — a @staticmethod can access a class variable, but not automatically through self or cls. Through class name only.
+		- Self means current object and cls means current class. 
+		
+	* Encapsulation 
+		- Keep data and the methods that operate on that data together, and control how the data is accessed.
+		- Private access modifier: Python doesnt have private access modifier. It uses name mangaling.
+		  * for declaring private: __name
+		    for declaring protected: _name
+		- Getter and setter utility
+		- @Property: @property in Python is a decorator that lets you access a method like an attribute.
+			  @property
+				def age(self):
+					return self.__age
+
+				@age.setter
+				def age(self, value):
+				
+	* Inheritence
+	* Polymorphism
+		- Python supports Static and dynamic binding. but Python does not generally perform Java-style compile-time method binding here. The actual method lookup happens at runtime. In Java, private, static and final, method bind happens at compile time as these belongs to class or it cannot be overridden. so Its gets binded at compile time only. In Python too, if we declare method as @staticmethod property then it will be binded at compile time. It only means the method doesn't receive self or cls.
+		- super() allows the child class to access the parent implementation.
+		- super() With __init__ : We can call super class constructor too and initialization depends the way we pass the attribute for initialization.
+		
+		** Duck-typing : If it behaves like a duck, treat it like a duck.
+			Dog and Robot class has both speak() method. Now speak() is common. Now we can create a method which takes object as parameter and with that, we can call its associated method.
+				def make_speak(obj):
+					obj.speak()
+					
+				make_speak(Dog())
+				make_speak(Robot()) ## Python cares about the object's behavior, not necessarily its inheritance hierarchy.
+				
+	* Abstraction
+		- Hide implementation details and expose only what the user needs.
+		- Abstract Class: Python provides from abc import ABC, abstractmethod
+				from abc import ABC, abstractmethod
+				class Animal(ABC):
+					@abstractmethod
+					def sound(self):
+						pass
+		  We cannot instaniate abstract class. we can only instantiate class which implements such abstract method.
+		  
+		  Abstract class
+				│
+				├── ✅ Constructor
+				├── ✅ Instance variables
+				├── ✅ Class variables
+				├── ✅ Normal methods
+				├── ✅ Abstract methods
+				├── ✅ Static methods
+				├── ✅ Class methods
+				├── ✅ Properties
+				├── ✅ Abstract properties
+				├── ✅ Dunder methods
+				├── ✅ Nested classes
+				└── ✅ Inheritance
+				
+	* Dunder method	
+		- Dunder methods are a Python mechanism for hooking into the language's built-in operations. just like toString(), equals() etc..
+		
+	* Composition vs Inheritence	
+		- IS-A : Inheritence, has-A: composition.
