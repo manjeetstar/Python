@@ -49,4 +49,5 @@ print("Output of utility function is ", Employee.utility(5,12))
 emp.absfunction()
 emp.phoneno="9899769493"
 print("Phone number is ", emp.phoneno)
+print(emp._Employee__phoneno)
         

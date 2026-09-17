@@ -1,19 +1,19 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap21
+Today's Agenda : chap21, chap22
 
 Chap21:  Object-Oriented Programming
 ************************************
 	* A class can have
 		- Instance attribute/variables: which are declared inside constructor with self. name is still an instance attribute, even though the assignment appears inside the class definition.
 		- Instance Methods [ Need to add self as parameter ] It can access all the instance variables inside the method.
-		- Class variables : A class variable belongs to the class, rather than being unique to each object. Declared inside the class, not initialized with Self. Each instance of a class, can access it , its common/shared to all the objects.
+		- Class variables : A class variable belongs to the class, rather than being unique to each object. Declared inside the class, not initialized with Self. Each instance of a class, can access it , its common/shared to all the objects.In Python it is considered as static variable.
 		- Class methods : [ Need to add cls as parameter ] It can access class variable.
 		- Static method: It is declared with no self or cls. It belongs to the class , can consider it as utility function. Yes — a @staticmethod can access a class variable, but not automatically through self or cls. Through class name only.
 		- Self means current object and cls means current class. 
 		
 	* Encapsulation 
-		- Keep data and the methods that operate on that data together, and control how the data is accessed.
+		- Combining data and the methods that operate on that data together, and control how the data is accessed.
 		- Private access modifier: Python doesnt have private access modifier. It uses name mangaling.
 		  * for declaring private: __name
 		    for declaring protected: _name
@@ -70,3 +70,20 @@ Chap21:  Object-Oriented Programming
 		
 	* Composition vs Inheritence	
 		- IS-A : Inheritence, has-A: composition.
+		
+Chap22: OOP — Core Principles
+*****************************
+	* Name Mangling - Name mangling is Python's mechanism for handling attributes/methods whose names start with two underscores (__).
+	  In python, if we try to access private variable, it will give error like attributeError. What python does internally, it changes the name to 
+		__salary
+			↓
+		_Employee__salary
+		
+		Now we can access it emp._Employee__salary . This is called Name mangling.
+	  Purpose : Mainly to avoid accidental name collisions in inheritance, not to provide true security. 
+	  *** Name mangling applies to methods too
+	
+	* Method Overloading - Python does not support traditional method overloading like Java. The key reason is that Python treats a function/method name as a single name in a class namespace. It doesn't maintain multiple versions of the same method based on parameter count/types like Java does.
+		** Python doesn't support traditional method overloading because defining a method with the same name again replaces the previous definition in the class namespace. Since Python is dynamically typed, it instead commonly uses default arguments, *args, **kwargs, or runtime dispatch to achieve similar behavior.
+	
+	* 
