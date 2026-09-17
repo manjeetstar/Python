@@ -6,9 +6,9 @@ Chap21:  Object-Oriented Programming
 ************************************
 	* A class can have
 		- Instance attribute/variables: which are declared inside constructor with self. name is still an instance attribute, even though the assignment appears inside the class definition.
-		- Instance Methods [ Need to add self as parameter ]
-		- Class variables : A class variable belongs to the class, rather than being unique to each object. Declared inside the class, not initialized with Self. Each instance of a class, can access it , its common to all the objects.
-		- Class methods : [ Need to add self as parameter ] It can access class variable.
+		- Instance Methods [ Need to add self as parameter ] It can access all the instance variables inside the method.
+		- Class variables : A class variable belongs to the class, rather than being unique to each object. Declared inside the class, not initialized with Self. Each instance of a class, can access it , its common/shared to all the objects.
+		- Class methods : [ Need to add cls as parameter ] It can access class variable.
 		- Static method: It is declared with no self or cls. It belongs to the class , can consider it as utility function. Yes — a @staticmethod can access a class variable, but not automatically through self or cls. Through class name only.
 		- Self means current object and cls means current class. 
 		
@@ -66,7 +66,7 @@ Chap21:  Object-Oriented Programming
 				└── ✅ Inheritance
 				
 	* Dunder method	
-		- Dunder methods are a Python mechanism for hooking into the language's built-in operations. just like toString(), equals() etc..
+		- Dunder methods are a python mechanism for hooking into the language's built-in operations. just like toString(), equals() etc..
 		
 	* Composition vs Inheritence	
 		- IS-A : Inheritence, has-A: composition.
