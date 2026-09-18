@@ -145,4 +145,123 @@ Chap23. Advanced OOP
 			
 Chap24. Magic / Dunder Methods
 ******************************
-	* 
+	* We normally don't call magic methods directly. Python calls them automatically when you use certain syntax.
+	** Dunder methods are not "extra methods" that Python programmers randomly created. They are hooks into Python's object model.
+	* Various built-in methods
+		* __init__ : For creating and initializing object. But How does internally works...
+			__init__() initializes an object. It is not technically the method that creates the object. Object creation is associated with __new__().
+			
+		* __str__() — Human-readable object representation
+			When we do emp=Employee() print(emp) it gives <__main__.Employee object at 0x000001...> which is not readable. We need to include __str__ for having customized details.
+			
+		* __repr__() — Developer representation 
+			Its similar to __str__, but more specific to dev debuging activity. If __str__() is not defined, Python can fall back to __repr__().
+			For accessing it , we need to write like print(repr(s))
+			
+		* __len__() — len(object)
+			This is equivalent to len() methods
+			
+		* __add__() — + operator
+			This is equivalent to c=a+b [+ operator overloading ]
+			
+		* Arithematic magic operations
+			| Operator | Magic method     |
+			| -------- | ---------------- |
+			| `a + b`  | `__add__()`      |
+			| `a - b`  | `__sub__()`      |
+			| `a * b`  | `__mul__()`      |
+			| `a / b`  | `__truediv__()`  |
+			| `a // b` | `__floordiv__()` |
+			| `a % b`  | `__mod__()`      |
+			| `a ** b` | `__pow__()`      |
+			| `-a`     | `__neg__()`      |
+			| `+a`     | `__pos__()`      |
+			
+		* Comparision Method Operation
+			| Operator | Magic method |
+			| -------- | ------------ |
+			| `a == b` | `__eq__()`   |
+			| `a != b` | `__ne__()`   |
+			| `a < b`  | `__lt__()`   |
+			| `a <= b` | `__le__()`   |
+			| `a > b`  | `__gt__()`   |
+			| `a >= b` | `__ge__()`   |
+			
+		* __getitem__() — object[index]
+			This is for getting value based on Index
+			
+		* __setitem__() — object[index] = value
+			This is for setting value based on index.
+			
+		* __contains__() — in
+		
+		* __iter__() — Iteration
+			An iterator can implement: __iter__() and __next__()
+			
+			class Counter:
+				def __init__(self, max_value):
+					self.current = 0
+					self.max_value = max_value
+
+				def __iter__(self):
+					return self
+
+				def __next__(self):
+
+					if self.current >= self.max_value:
+						raise StopIteration
+
+					self.current += 1
+					return self.current
+			Internally Sequence would be..
+				iter(counter)
+					 ↓
+				__iter__()
+					 ↓
+				__next__()
+					 ↓
+				1
+					 ↓
+				__next__()
+					 ↓
+				2
+					 ↓
+				__next__()
+					 ↓
+				3
+					 ↓
+				StopIteration
+				
+		* __call__() — Make an object callable
+			Suppose emp=Employee(), if we want to make object callable like emp(), we need to add __call__ dunder mehtod within class.
+			
+		* __bool__() — Boolean value
+		
+		* __enter__() and __exit__() — with [ This is being used as context manager ]
+				with
+				 ↓
+				__enter__()
+				 ↓
+				body executes
+				 ↓
+				__exit__()
+
+		* __slots__ — Special class attribute
+			__slots__ = ["name", "age"] # __slots__ can restrict which instance attributes can be created and can avoid the normal per-instance __dict__ in suitable cases.
+			s = Student("Manjeet", 45)
+			s.city = "Delhi" # It will fail as city is not in the slot.
+			
+		* Attribute access magic methods
+			__getattr__()
+			__getattribute__()
+			__setattr__()
+			__delattr__()
+		
+		* Normal vs Magic method
+			Normal method
+				↓
+			You call it explicitly
+
+			Magic method
+				↓
+			Python syntax/operation triggers it
