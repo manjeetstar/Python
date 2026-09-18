@@ -16,3 +16,14 @@ g=display("../test.txt")
 print(next(g))
 print(next(g))
 print(next(g))
+
+def calculate():
+   status=0
+   while True:
+      value=yield status
+      status=status+value
+
+g5=calculate()
+next(g5)
+print("Checking send value to generator", g5.send(20))
+print("Checking send value to generator", g5.send(30))
