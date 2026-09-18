@@ -372,5 +372,6 @@ Chap26. Generators
 		print("Checking send value to generator", g5.send(20))
 		print("Checking send value to generator", g5.send(30))
 
+	* A generator can have return value. which gets executed once generator is over.
 
 				
