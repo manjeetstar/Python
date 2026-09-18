@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap21, chap22, chap23
+Today's Agenda : chap21, chap22, chap23, Chap24
 
 Chap21:  Object-Oriented Programming
 ************************************
@@ -143,3 +143,6 @@ Chap23. Advanced OOP
 		** we can set default value too while defining dataclass like we did for salary default value as 2000.
 		** Frozen - We can turn instance immutable. @dataclass(frozen=true) .This is useful when you want objects whose state shouldn't change after creation.
 			
+Chap24. Magic / Dunder Methods
+******************************
+	* 
