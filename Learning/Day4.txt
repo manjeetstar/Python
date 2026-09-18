@@ -269,3 +269,10 @@ Chap24. Magic / Dunder Methods
 			Magic method
 				↓
 			Python syntax/operation triggers it
+			
+		* Iterable vs Iterator
+			An iterable is an object that can be iterated over and provides __iter__() to obtain an iterator. but it has no __next__
+			An iterator is an object that knows how to produce the next value and implements __next__().
+				
+			** Iterable = can be iterated and provides __iter__() to get an iterator.
+			   Iterator = knows the next item and provides __next__() to retrieve it.	
