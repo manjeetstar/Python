@@ -151,6 +151,10 @@ Chap24. Magic / Dunder Methods
 		* __init__ : For creating and initializing object. But How does internally works...
 			__init__() initializes an object. It is not technically the method that creates the object. Object creation is associated with __new__().
 			
+			 def __new__(cls, name, age):
+				print("Object created")
+				return super().__new__(cls)
+			
 		* __str__() — Human-readable object representation
 			When we do emp=Employee() print(emp) it gives <__main__.Employee object at 0x000001...> which is not readable. We need to include __str__ for having customized details.
 			
