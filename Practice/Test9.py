@@ -18,12 +18,21 @@ print(next(g))
 print(next(g))
 
 def calculate():
-   status=0
-   while True:
-      value=yield status
-      status=status+value
+   status, ctr =0, 0
+  
+   for ctr in range(5):      
+        value=yield status
+        status=status+value  
 
 g5=calculate()
-next(g5)
-print("Checking send value to generator", g5.send(20))
-print("Checking send value to generator", g5.send(30))
+try:
+    print(next(g5))
+    print("Checking send value to generator", g5.send(20))
+    print("Checking send value to generator", g5.send(30))
+    print("Checking send value to generator", g5.send(30))
+    print("Checking send value to generator", g5.send(30))
+    print("Checking send value to generator", g5.send(30))
+except StopIteration as e:
+   print("Generator has finished")
+finally:
+   print("Rest of the code...")
