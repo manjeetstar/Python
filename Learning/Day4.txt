@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap21, chap22, chap23, Chap24, chap25
+Today's Agenda : chap21, chap22, chap23, Chap24, chap25, chap26
 
 Chap21:  Object-Oriented Programming
 ************************************
@@ -310,3 +310,56 @@ Chap25. Iterables & Iterators
 	** range() is also iterable.
 	
 	* 2 methods need to be remebered - iter() and next()
+	
+Chap26. Generators 
+******************
+	* A generator is a lazy iterator that uses yield to produce a value, pause execution, remember its state, and resume later. It is having 2 methods yield and next. Yield means will return value and then pause the executio, and remembers its state.
+	* return vs yield
+		return - Once return executes, the function is finished.
+		yield - The function doesn't finish permanently when it reaches yield. It pauses.
+		
+	* How does generator remeberes state?
+		Python remembers:
+			local variables
+			current execution position
+			function state
+		Python doesn't restart the function. It pauses and later resumes.
+		
+	* Generator is an Iterator. As iter(g) is g only. so Therefore, a generator implements the iterator protocol: __iter__ and __next__
+	** yield returns one value/object; yield from returns each value from another iterable/iterator one by one. 
+	   yield = give me the inside box 📦; yield from = give me what's inside the box.
+	   
+	* for loop and Generator - Python does automatically next() call and at the end, it fires StopIteration() call.
+	* Purpose of generator - “The main purpose of a generator is to produce values lazily, one at a time, using yield, instead of storing all values in memory at once. This makes generators memory-efficient and useful for large datasets, file processing, streams, and infinite sequences.”
+	
+	* List comprehension vs generator expression : All are same but for list, need to enclosed in [] but for generator, its enclosed in ()
+	* During compilation, When Python reads this function definition, it sees the yield keyword and marks outer as a generator function.
+		x=generator() # It creates a generator object.
+		
+	** we can check the type of object whether its iterator or generator. To get the inner generator , next(outer generator) will give inner generator.
+	
+	* Reading a hug file, Generator is very important..
+	** Generator vs Iterator
+		For having iterator flavor, we need to write lots of code like need to add __iter__() and __next__() function.
+		But generator does it automatically.
+		
+	* Generator Function vs Generator Object
+		Generator Function - 
+		     def Manjeet():
+			     yield 1
+				 yield 2
+				 
+		But g=Manjeet() Here g is a generator object
+		
+	**  yield vs Send
+					GENERATOR
+					  ↕
+			  ┌───────┴───────┐
+			  │               │
+		   yield            send()
+			  │               │
+			  ↓               ↑
+		  value OUT       value IN
+
+
+				
