@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap21, chap22, chap23, Chap24
+Today's Agenda : chap21, chap22, chap23, Chap24, chap25
 
 Chap21:  Object-Oriented Programming
 ************************************
@@ -272,7 +272,41 @@ Chap24. Magic / Dunder Methods
 			
 		* Iterable vs Iterator
 			An iterable is an object that can be iterated over and provides __iter__() to obtain an iterator. but it has no __next__
-			An iterator is an object that knows how to produce the next value and implements __next__().
+			An iterator is an object that knows how to produce the next value and implements __next__(). but iterator implements both __iter__ and __next__
 				
 			** Iterable = can be iterated and provides __iter__() to get an iterator.
 			   Iterator = knows the next item and provides __next__() to retrieve it.	
+			   
+Chap25. Iterables & Iterators
+*****************************
+	* Iterable = bookshelf , It contains things that can be traversed. List, tuples, dict etc are iterables.
+	  Iterator = bookmark + your current position, it remembers where you currently are.
+	  
+	* Now to check whether iterable has __iter__ or __next__ . Ideally it will not have __next__
+		print(hasattr(numbers, "__iter__"))
+		
+		LIST
+		 └── __iter__() [Because iter() converts an iterable into an iterator.]
+			   ↓
+		   LIST ITERATOR
+			   ├── __iter__()
+			   └── __next__()
+			   
+	* Why does an iterator have __iter__() too?
+		We might think: 
+			"If an iterator already gives me values using next(), why does it need __iter__()?" - Python's iterator protocol requires an iterator to return itself from __iter__().
+			
+	*   | Feature               | Iterable          | Iterator       |
+		| --------------------- | ----------------- | -------------- |
+		| Can be used in `for`  | ✅                 | ✅              |
+		| Has `__iter__()`      | ✅                 | ✅              |
+		| Has `__next__()`      | Usually ❌         | ✅              |
+		| Keeps iteration state | Usually ❌         | ✅              |
+		| `iter(obj)`           | Produces iterator | Returns itself |
+		| `next(obj)`           | Usually ❌         | ✅              |
+
+	** Every iterator is an iterable, but not every iterable is an iterator. as iterator implements both but iterable implements only __iter__
+	* Iterable can usually be iterated multiple times. Each for loop obtains a new iterator.
+	** range() is also iterable.
+	
+	* 2 methods need to be remebered - iter() and next()

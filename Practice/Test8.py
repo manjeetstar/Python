@@ -61,3 +61,7 @@ print("Manjeet Singh" in m1)
 
 for item in m1:
     print(item)
+
+a1=[10,20,30]
+s2=iter(a1)
+print(iter(s2) is s2)
