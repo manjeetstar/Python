@@ -1,0 +1,27 @@
+Agenda- Chapter(s)
+*****************
+Today's Agenda : chap35
+
+Chap35: Dataclasses
+*******************
+	* A dataclass in Python is a class designed mainly for storing data. The @dataclass decorator automatically generates boilerplate methods such as __init__(), __repr__(), and __eq__() based on the fields we define.
+	
+			@dataclass
+			class Manjeet:
+				name: str
+				age: int
+				address: dict
+
+			m1=Manjeet("Manjeet",20,{"addressLine1": "Sussex 3B", "zipcode": 203, "city": "Vancouver"})
+
+			print(repr(m1)) // Manjeet(name='Manjeet', age=20, address={'addressLine1': 'Sussex 3B', 'zipcode': 203, 'city': 'Vancouver'})
+			
+	* Dataclasses normally use type annotations. 
+	   *** Type hints don't automatically perform runtime validation. We can add value of different data type as well.
+	       Python doesn't automatically reject it merely because of the annotations. 
+		   ** For runtime validation, tools such as Pydantic are often more appropriate.
+		   
+	* Dataclass:
+		- we can add default values also. so while initializing, if we dont pass that value, it will consider default value too.
+		- Non-default fields should generally come before default fields. if not , then it produces TypeError: non-default argument 'name', follows default argument
+		- 
