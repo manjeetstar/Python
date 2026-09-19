@@ -71,3 +71,20 @@ Chap35: Dataclasses
 		class User:
 			name: str
 			role: ClassVar[str] = "USER"
+			
+	* InitVar allows a value to be accepted by __init__() but not stored as a normal field. 
+		from dataclasses import dataclass, InitVar
+		This is being used for just initialization like password etc... But we cannot use it lilke normal variable like user.password..
+		
+	* Nested Dataclasses
+		- One dataclass will be attribute of another dataclass.
+		@dataclass
+		class User:
+			name: str
+			address: Address
+			
+	* Convert dataclasses to dictionary & tuple - asDict() , asTuple() 
+	
+	* for looping of dataclasses fields, we use fields.
+		for field in fields(User):
+			print(field.name, field.type)
