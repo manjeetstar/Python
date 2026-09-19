@@ -4,4 +4,52 @@ Today's Agenda : chap27
 
 Chap27:  Lambda Functions
 *************************
-	* 
+	* A lambda function is a small, anonymous function written in a single expression.
+		lambda arguments: expression
+		The lambda itself creates a function object.
+		
+	* Lambda vs Normal function
+			def                    lambda
+			 │                       │
+			 ▼                       ▼
+			named function          anonymous function
+			multiple statements     single expression
+			explicit return         implicit return
+			
+	* Lambda functions can have default arguments. greet = lambda name="Manjeet": f"Hello {name}"
+	
+	* Lambda with all if..else
+	
+	* Lambda with Map - 
+		numbers = [1, 2, 3, 4, 5]
+		result = map(lambda x: x * x, numbers)
+		
+	* Lambda with sorted 
+			sorted(iterable, key=lambda item: sorting_value)
+			
+			students = [
+				("John", 85),
+				("Alice", 92),
+				("Bob", 78)
+			]
+			result = sorted(students, key=lambda x: x[1]) // Here x[1] means sorting based on age.
+		For changing the order, result = sorted(numbers, key=lambda x: x, reverse=True)
+		
+	* Lambda With reduce() - reduce(function, iterable, initializer)
+		result = reduce(lambda a, b: a + b, numbers)
+		
+	* Lambda Inside Another Function - We can return Lambda expression too from a function as well. While calling the function, it returns a lambda expression with held value(even outer function has finished). This is what we call it closure.
+	
+	* Immediately Invoked Lambda - result = (lambda x: x * x)(5) Here (lambda x: x * x) creates a function expression and (5) is the argument passed to the function.
+	* Lambda Limitations
+		- You cannot have multiple statements
+		- You cannot write normal control-flow blocks
+	
+	** Lambda in Real Automation/API Testing Here Sorted, min, max so we need to use it as much required.
+	
+	* A higher-order function is a function that:
+		1. accepts another function as an argument, or
+		2. returns another function.
+		
+
+
