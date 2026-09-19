@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap27
+Today's Agenda : chap27, chap28
 
 Chap27:  Lambda Functions
 *************************
@@ -53,6 +53,13 @@ Chap27:  Lambda Functions
 		1. accepts another function as an argument, or
 		2. returns another function. Here in function, we are sending a lambda expression.
 		
-		
+Chap28:  Functional Programming
+*******************************
+	* Functional Programming (FP) is a programming style where computation is expressed by applying functions to data, while trying to minimize changing state and side effects.
+	
+	* We can filter, map and reduce all in a single statement , this is what called functional programming, applying functions on data.
+		ages=[10,3,45,32,24]
+		result=reduce(lambda a, b: a+b, list(map(lambda y: y*2, filter(lambda x: x%2 == 0, ages))), 0)
+		print(result)
 
 
