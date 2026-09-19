@@ -62,4 +62,50 @@ Chap28:  Functional Programming
 		result=reduce(lambda a, b: a+b, list(map(lambda y: y*2, filter(lambda x: x%2 == 0, ages))), 0)
 		print(result)
 
+	* First-Class Functions - Python treats function as first class function whether it can assigned to a variable or passed as an argument or returned from another function(returning lambda expression)
+	
+	* A pure function:
+		1. Always produces the same output for the same input.
+		2. Doesn't modify external state.
+	  Impure function
+		External state
+			 ↑
+			 │
+		function modifies it
+	* A side effect occurs when a function does something beyond calculating and returning a value. like inserting in database or writing in file or hitting any api endpoint etc..
+	
+	** Function Composition : its like f(g(x) where g is a function and f is a function too. Output of g becomes input of f.
+	   we can create our own..
+			def compose(f, g):
+              return lambda x: f(g(x))
+			  
+			double = lambda x: x * 2
+			square = lambda x: x * x
 
+			operation = compose(square, double)
+
+			print(operation(5))
+			
+	* Referential Transparency - An expression is referentially transparent when you can replace it with its result without changing program behavior.
+	* Functions as Data : data → function → result. Its like in the place of data, we are passing the function expression
+			operations = [
+				lambda x: x + 10,
+				lambda x: x * 2,
+				lambda x: x ** 2
+			]
+			
+	* functools — Important Module
+		functools.reduce()
+		functools.partial()
+		functools.lru_cache()
+		functools.cache()
+		functools.wraps()
+		
+	** Functional Programming Principles
+			1. First-class functions
+			2. Higher-order functions
+			3. Pure functions
+			4. Minimize side effects
+			5. Prefer immutability
+			6. Function composition
+			7. Declarative thinking
