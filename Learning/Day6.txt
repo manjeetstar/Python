@@ -1,6 +1,12 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap35, chap36
+Today's Agenda : chap33, chap35, chap36
+
+Chap33. Type Hints
+******************
+	* Type hints in Python are optional annotations used to specify the expected types of variables, function parameters, and return values. They improve readability, IDE support, static analysis, and maintainability, but Python does not enforce them at runtime by default.
+	
+	* Its fully similar to Typescript.
 
 Chap35: Dataclasses
 *******************

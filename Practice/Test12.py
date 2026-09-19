@@ -12,7 +12,5 @@ class FlightTime(Enum):
             FlightTime.DELAYED: "Flight is DELAYED",
             FlightTime.CANCELLED: "Flight is CANCELLED for today"
         }[self]
-    
-
-   
+       
 print(FlightTime.DELAYED.description)
