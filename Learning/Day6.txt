@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap35
+Today's Agenda : chap35, chap36
 
 Chap35: Dataclasses
 *******************
@@ -134,3 +134,51 @@ Chap35: Dataclasses
 			init
 			repr
 			compare
+			
+Chap36. Enums
+*************
+	* Enum is a Python class used to create a fixed set of named constants. It can keep concrete methods as well.	
+		from enum import Enum
+
+		class Status(Enum):
+			PENDING = "pending"
+			RUNNING = "running"
+			COMPLETED = "completed"
+			FAILED = "failed"
+		Here Status is an enum class, Status.PENDING, Status.RUNNING are enum members.
+		if we want to access these members name and value, we can write like Status.PENDIGN.name & Status.PENDING.value 
+		OR 
+		status=Status.PENDING Here status becomes one of Status enum members.
+		
+	* We can iterate it using for..in loop.
+	
+	* Getting Enum from a value : name = Status("pending") it will return Status.PENDING
+	 	| Expression | Searches |
+		| `Status["COMPLETED"]` | name |
+		| `Status("completed")` | value |
+		
+	* Iteration only returns the canonical members: Means if 2 members have the same value, it considers the last one as the alias and it doesnt show while iterating to it.
+	
+	* Prevent duplicate values with @unique at class level. from enum import Enum, unique
+	
+	* IntEnum/ StrEnum : Sometimes you want Enum members to behave like integers/string. So member returns value of it. We dont need to use Status.PENDING.value. IntEnum/StrEnum members behave like integers/string.
+	
+	** auto() - If we want assign automation value to enum members , we can write auto() as member value.
+	
+	** Enum with description 
+	
+		from enum import Enum
+		class Priority(Enum):
+			LOW = 1
+			MEDIUM = 2
+			HIGH = 3
+
+			@property
+			def description(self):
+				return {
+					Priority.LOW: "Can wait",
+					Priority.MEDIUM: "Normal priority",
+					Priority.HIGH: "Needs immediate attention"
+				}[self]
+				
+		print(Priority.HIGH.description) ## Now it will return "Needs immediate attention"
