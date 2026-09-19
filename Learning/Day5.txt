@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap27, chap28
+Today's Agenda : chap27, chap28, chap29
 
 Chap27:  Lambda Functions
 *************************
@@ -109,3 +109,7 @@ Chap28:  Functional Programming
 			5. Prefer immutability
 			6. Function composition
 			7. Declarative thinking
+			
+Chap29: Decorators
+******************
+	* 
