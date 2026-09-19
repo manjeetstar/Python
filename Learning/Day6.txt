@@ -24,4 +24,50 @@ Chap35: Dataclasses
 	* Dataclass:
 		- we can add default values also. so while initializing, if we dont pass that value, it will consider default value too.
 		- Non-default fields should generally come before default fields. if not , then it produces TypeError: non-default argument 'name', follows default argument
-		- 
+		
+	* For advanced field configuration: field(). Here we can see attribute level configuration.
+		from dataclasses import dataclass, field
+		
+		Here We can control things like:
+			- default values
+			- default factories
+			- whether a field appears in repr
+			- whether a field participates in comparisons
+			- initialization behavior
+			
+		age: int = field(repr=True) Here under field, we can see various config which can be On/Off.
+		
+	* default_factory : default_factory in a dataclass specifies a callable that is invoked to generate a default value for each new instance. It is especially useful for mutable fields like lists, dictionaries, and sets, because each instance receives its own independent object. It can be used with function/lambda also as well.
+		@dataclass
+		class Manjeet:
+			name: str        
+			age: int = field(repr=True)
+			address: dict = field(default_factory=dict)
+
+		m1=Manjeet("Manjeet", 20)
+		m2=Manjeet("Awatar",30)
+		m1.address["addressLine1"]="Essex Squaer 23"
+
+		print(m1) // Manjeet(name='Manjeet', age=20, address={'addressLine1': 'Essex Squaer 23'})
+		print(m2) // Manjeet(name='Awatar', age=30, address={})
+		
+	*** default vs default_factory
+		default : Use when the default is a fixed/simple value: status: str = "ACTIVE"
+		default_factory : Use when the default needs to be created dynamically, especially for mutable objects. skills: list = field(default_factory=list)
+		
+	* __post_init__()
+		- __post_init__() runs immediately after the generated __init__().
+		
+	* @dataclass(frozen=True, order=True) : We can make a dataclass effectively immutable. If we try to change value, it will raise erro FrozenInstanceError. if we set order=true, dataclass will add comparision dunder method also...
+	
+	* compare=False at Field level. This is for ignorning particular field comparision belongs to 2 objects.
+	
+	* classVar - ClassVar is a type annotation used to indicate that a variable belongs to the class rather than individual instances. In dataclasses, fields annotated with ClassVar are excluded from dataclass field processing and generated methods such as __init__(). It is like class variable which is shared one and each instance of dataclass can access it.
+	
+		from dataclasses import dataclass
+		from typing import ClassVar
+
+		@dataclass
+		class User:
+			name: str
+			role: ClassVar[str] = "USER"
