@@ -4,7 +4,7 @@ Today's Agenda : chap35
 
 Chap35: Dataclasses
 *******************
-	* A dataclass in Python is a class designed mainly for storing data. The @dataclass decorator automatically generates boilerplate methods such as __init__(), __repr__(), and __eq__() based on the fields we define.
+	* A dataclass in Python is a class designed mainly for storing data. The @dataclass decorator automatically generates boilerplate methods such as __init__(), __repr__(), and __eq__() based on the fields we define. we can add concrete method also.
 	
 			@dataclass
 			class Manjeet:
@@ -88,3 +88,49 @@ Chap35: Dataclasses
 	* for looping of dataclasses fields, we use fields.
 		for field in fields(User):
 			print(field.name, field.type)
+			
+	* dataclasses.replace() - This can create a modified copy.
+			from dataclasses import replace
+			user1 = User("John", 30)
+			user2 = replace(user1, age=31)
+			
+	** Dataclass vs pydantic
+			Structured Python object
+				+
+			Less boilerplate
+			
+		Pydantic
+			Data validation
+				+
+			Parsing
+				+
+			Serialization
+				+
+			Schema
+			
+	** All oops concepts are as it is with class.
+	
+	** Slots - slots=True in a dataclass generates __slots__ for the declared fields, avoiding the normal instance __dict__. It can reduce memory usage and prevents adding arbitrary new instance attributes.
+	This means when we do object.__dict__, it will not give who dict details.
+		print(e.__dict__) # {'name': 'John', 'salary': 80000}
+		print(e.__slots__) # ('name', 'salary')
+		
+	Another thins, we cannot add more attributes. it raises an AttributeError, because age wasn't declared as a field. slots=True does not make the object immutable. We can if we add both frozen and slots as True 
+	
+	** @dataclass Parameters
+		@dataclass(
+			init=True,
+			repr=True,
+			eq=True,
+			order=False,
+			unsafe_hash=False,
+			frozen=False,
+			slots=False
+		)
+		
+		With field
+			default
+			default_factory
+			init
+			repr
+			compare
