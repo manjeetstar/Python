@@ -20,7 +20,7 @@ Chap27:  Lambda Functions
 	
 	* Lambda with all if..else
 	
-	* Lambda with Map - 
+	* Lambda with Map - map(lambda function, iterables)
 		numbers = [1, 2, 3, 4, 5]
 		result = map(lambda x: x * x, numbers)
 		
@@ -46,10 +46,13 @@ Chap27:  Lambda Functions
 		- You cannot write normal control-flow blocks
 	
 	** Lambda in Real Automation/API Testing Here Sorted, min, max so we need to use it as much required.
+	   Max : max(data, key=lambda x: x["score"])
+	   Min : min(data, key=lambda x: x["score"])
 	
 	* A higher-order function is a function that:
 		1. accepts another function as an argument, or
-		2. returns another function.
+		2. returns another function. Here in function, we are sending a lambda expression.
+		
 		
 
 
