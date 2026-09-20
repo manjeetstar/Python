@@ -112,4 +112,4 @@ Chap28:  Functional Programming
 			
 Chap29: Decorators
 ******************
-	* 
+	* A decorator is a function that modifies or extends the behavior of another function without changing its source code.
