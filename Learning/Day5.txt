@@ -126,7 +126,7 @@ Chap29: Decorators
 						 ├── original function
 						 └── after
 	*  @wraps(func) This is we need to tagged to wrapper method. This is just to save meta data associated with original function, not the wrapper function.
-	if we dont do, then print(<original_Method>.__name__) will return wrapper...
+	if we dont do, then print(<original_Method>.__name__) will return wrapper... Other than __name__, other meta data __doc__ and __module__
 	 
 	* If decorator function has a parameter then the sequence would be like..
 			retry()
@@ -138,3 +138,40 @@ Chap29: Decorators
 			original function
 			
 		Here we need to return result, followed by wrapper and decorator. Why? Because its a decorator factory so it returns that manyy decorator.
+	* we can tag multiple decorator to a function.
+		@decorator1
+		@decorator2
+		def process(): # Here execution order would decorator1 first, followed by decorator2.
+		
+		process = decorator1(decorator2(process))
+		Here output would be
+			decorator1 before
+			decorator2 before
+			TEST
+			decorator2 after
+			decorator1 after
+			
+	** Decorator with class : We can define decorator within a class and that can be applied to a method.
+	Class-based decorator — __call__ needed, we need to implement within class. __call__ makes an object behave like a function.
+		class Log:
+		def __init__(self, func):
+			self.func = func
+
+		def __call__(self, *args, **kwargs):
+			print("Before")
+			return self.func(*args, **kwargs)
+			
+		Then
+			@Log
+			def calculate(a, b):
+				return a + b
+		calculate(10,20)
+		
+		Class decorators are useful for:
+			- registration
+			- dependency injection
+			- configuration
+			- metadata
+			- plugin systems
+			
+	* 
