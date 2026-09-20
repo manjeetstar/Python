@@ -113,3 +113,16 @@ Chap28:  Functional Programming
 Chap29: Decorators
 ******************
 	* A decorator is a function that modifies or extends the behavior of another function without changing its source code.
+	* Decorator can be used for Logging, Authentication,Authorization,Timing,Retry,Caching,Validation,Metrics,Tracing,Exception handling
+	* Decorators depend heavily on the fact that Python functions are objects. You can assign a function to a variable.
+	* Pattern of a decorator
+			decorator
+			   │
+			   ├── receives function
+			   │
+			   └── returns wrapper
+						 │
+						 ├── before
+						 ├── original function
+						 └── after
+	* 
