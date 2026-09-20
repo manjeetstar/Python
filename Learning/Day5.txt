@@ -125,4 +125,16 @@ Chap29: Decorators
 						 ├── before
 						 ├── original function
 						 └── after
-	* 
+	*  @wraps(func) This is we need to tagged to wrapper method. This is just to save meta data associated with original function, not the wrapper function.
+	if we dont do, then print(<original_Method>.__name__) will return wrapper...
+	 
+	* If decorator function has a parameter then the sequence would be like..
+			retry()
+			   ↓
+			decorator()
+			   ↓
+			wrapper()
+			   ↓
+			original function
+			
+		Here we need to return result, followed by wrapper and decorator. Why? Because its a decorator factory so it returns that manyy decorator.
