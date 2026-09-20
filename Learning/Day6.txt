@@ -4,9 +4,41 @@ Today's Agenda : chap33, chap35, chap36
 
 Chap33. Type Hints
 ******************
+	* Main package is typing, its like from typing import TypedDict, Any, Literal, Final etc
+	
 	* Type hints in Python are optional annotations used to specify the expected types of variables, function parameters, and return values. They improve readability, IDE support, static analysis, and maintainability, but Python does not enforce them at runtime by default.
 	
-	* Its fully similar to Typescript.
+	* Its fully similar to Typescript. Here for return type, we use -> but in TS, for arrow function, we use =>
+	* A tool such as mypy, Pyright, or your IDE can detect the problem. But for runtime validation, need to use pydantic.
+	
+	* We can use | as to decide either value.
+	
+	** TypedDict is used when you want a dictionary with a fixed structure and type hints for its keys and values. Its like "A dictionary, but with a defined schema. Its more like interface of TS.
+		from typing import TypedDict
+		
+	* Other static tools for Type check
+			Python
+			  ↓
+			Dynamic typing
+
+			Type hints
+			  ↓
+			Optional static typing information
+
+			mypy / Pyright
+			  ↓
+			Detect type inconsistencies
+			
+	* Literal - Sometimes we don't want to accept any string. we want only specific values.
+	   with TypedDict and Literal , 
+			class Manager(TypedDict):
+				name: str
+				age: int
+				address: str
+				Married: bool | None
+				status: Literal["pending", "success", "failed"]
+			if we add any value other than this in status arrtibute, it will provide error.
+				
 
 Chap35: Dataclasses
 *******************
