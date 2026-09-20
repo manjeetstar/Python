@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap33, chap35, chap36
+Today's Agenda : chap33, chap34, chap35, chap36
 
 Chap33. Type Hints
 ******************
@@ -38,6 +38,34 @@ Chap33. Type Hints
 				Married: bool | None
 				status: Literal["pending", "success", "failed"]
 			if we add any value other than this in status arrtibute, it will provide error.
+	* Final - Value cannot be changed.
+			
+Chap34. Advanced Type System
+****************************
+	** Overall Structure
+		                    Python Typing
+								 │
+				┌────────────────┼─────────────────┐
+				│                │                 │
+			  Basic            Generic           Structural
+				│                │                 │
+		   str/int/list       TypeVar             Protocol
+		   dict/tuple         Generic             runtime_checkable
+		   Union              Self
+		   Literal            Type[T]
+		   Final              ParamSpec
+		   TypedDict          Concatenate
+							 │
+							 │
+					   Advanced Narrowing
+							 │
+					  ┌──────┼───────┐
+					  │      │       │
+				  TypeGuard TypeIs overload
+					  │
+				  Annotated
+					  │
+			   FastAPI / Pydantic
 				
 
 Chap35: Dataclasses
