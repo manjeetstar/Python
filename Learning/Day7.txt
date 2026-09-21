@@ -1,0 +1,7 @@
+Agenda- Chapter(s)
+*****************
+Today's Agenda : chap37
+
+Chap37: Python Object Model
+***************************
+	* 

@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap27, chap28, chap29
+Today's Agenda : chap27, chap28, chap29, Chap30
 
 Chap27:  Lambda Functions
 *************************
@@ -174,4 +174,6 @@ Chap29: Decorators
 			- metadata
 			- plugin systems
 			
+Chap30: Closures
+****************
 	* 
