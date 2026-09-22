@@ -4,4 +4,18 @@ Today's Agenda : chap37
 
 Chap37: Python Object Model
 ***************************
-	* 
+	* In Python, almost everything is an object, and objects are controlled by a well-defined object model.
+	
+	* When we want to treat instance of a class as function, we need to add __call__() dunder method.
+	  so if we do m=Manjeet and then m(), it will call __call__ method. This is very important when we implement decorator within the class and applies on external method.
+	 
+	* type is the default metaclass used to create classes. means print(type(type)) will be type.
+	* == checks value and is checks object reference like a1 is a2 means a1 ,a2 referes to same object. if yes, then true else false.
+	
+	** Each object has 3 things...
+		Object
+		 ├── Identity means memory reference
+		 ├── Type means string, int or etc
+		 └── Value means value it holds
+			  
+			
