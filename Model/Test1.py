@@ -1,4 +1,6 @@
-import sys, tracemalloc
+import tracemalloc
+import copy
+
 tracemalloc.start()
 ctr=["Manjeet",22,3,4,True]
 
@@ -10,3 +12,7 @@ print("Initial value ", id(x))
 
 x=20
 print("After ", id(x))
+
+ctr=[1,2,3,[10,11,12]]
+ctr1=copy.deepcopy(ctr)
+print("Comparision ", ctr is ctr1)
