@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37
+Today's Agenda : chap37, chap38
 
 Chap37: Python Object Model
 ***************************
@@ -18,4 +18,6 @@ Chap37: Python Object Model
 		 ├── Type means string, int or etc
 		 └── Value means value it holds
 			  
-			
+Chap38: Memory Management
+*************************
+	* Python variables hold references to objects; CPython primarily uses reference counting to manage object lifetime, with cyclic garbage collection handling reference cycles, while its memory allocator manages the underlying memory.
