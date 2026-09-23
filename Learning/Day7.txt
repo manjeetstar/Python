@@ -43,6 +43,43 @@ Chap38: Memory Management
 			Variables are references to objects, not containers holding the objects themselves.
 			
 	* for getting the reference, id(<object>) is present.
-	* Reference counting - Python keeps track of how many references point to an object in memory. To get the count, sys.getrefcount(<object>) is present. First time, it will count as 2 Because getrefcount() itself temporarily creates another reference.
+	* Reference counting - Python keeps track of how many references point to an object in memory. To get the count, sys.getrefcount(<object>) is present. First time, it will count as 2 Because getrefcount() temporarily creates another reference while evaluating its argument.
 		a ─────────────► [10,20,30]
 		getrefcount(a) ─► [10,20,30]   ← temporary
+	** del Does NOT Necessarily Delete the Object. del data means: Remove the name/reference data. It doesnt mean immediately destroy the object.
+		data = [1, 2, 3]
+		other = data
+		del data # Here it delete name/reference data but other has reference to data. so list will not be deleted.
+		** when object has no reference pointing to it so it becomes unreachable and become good candidate for garbage collection.
+	
+	** As we can change to mutable objects that means if we change something out of it, it will refer the same old object.
+		data = {"count": 0}
+		other = data
+		other["count"] = 100 # Mutating existing object
+		print(data) # its means data and other point to the same dictionary.
+	   
+	    Reassignment is different like 
+			data = {"count": 0} # creates a new dictionary
+			other = data
+			data = {"count": 100} # creating an another dictionary. make data reference a different object.
+			
+	* For garbage collection, gc.collect() . We dont need to do manually as python does it regularly.
+	
+	** Python Heap - Python objects generally live in a private heap managed by Python. Python's memory allocator manages this memory.
+			Python Heap
+				│
+				├── list object
+				│
+				├── dict object
+				│   └── string objects
+				│
+				├── dict object
+				│
+				└── dict object
+	   so variable name will go like [ Names live in namespaces; objects live on the Python heap. ]
+			Global namespace (dictionary)
+				┌──────────────┬───────────────┐
+				│ "name"       │ reference ────┼────► "Manjeet"
+				└──────────────┴───────────────┘
+													  ↑
+												   Python heap
