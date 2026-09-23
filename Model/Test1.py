@@ -16,3 +16,6 @@ print("After ", id(x))
 ctr=[1,2,3,[10,11,12]]
 ctr1=copy.deepcopy(ctr)
 print("Comparision ", ctr is ctr1)
+
+print(copy.__spec__)
+print(copy.__loader__)

@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37, chap38, chap39, chap40
+Today's Agenda : chap37, chap38, chap39, chap40, chap41
 
 Chap37: Python Object Model
 ***************************
@@ -198,3 +198,82 @@ Chap40. Shallow Copy vs Deep Copy
 		The slots are different, but the references stored in those slots can point to the same object. Thats why it will be true only.
 		
 		For deepcopy, Same will happen but only for immutable objects. This is the key distinction.
+		
+Chap41. Python Import System 
+****************************
+	* Python catches all the imported modules in sys.modules. we can remove a module from the cache like del sys.modules("Math")
+	* Adding our own directory to sys.path like sys.path.append(<Path>). After this, Python may search imported folder in this supplied path.
+	*** Each module gets a special attribute called __name__. if you print in a file, it returns value __main__
+	  thats why when we write if __name__ == __main__ : <Execute following code. That means if we run the current file then only followed code under if, will be executed.
+	  
+	  while importing, in that file, it becomes __name__ == module_name
+			Executed directly
+				  ↓
+			__name__ == "__main__"
+
+			Imported
+				  ↓
+			__name__ == module name
+			
+	***	 python tools/cleanup.py
+			└────── file path
+
+		 python -m tools.cleanup
+			└──── module path
+			
+	*** Circular import
+				import a
+				   │
+				   ▼
+				Create module object
+				   │
+				   ▼
+				Put module in sys.modules
+				   │
+				   ▼
+				Execute a.py
+				   │
+				   ├── imports b
+				   │      │
+				   │      ▼
+				   │   execute b.py
+				   │      │
+				   │      └── imports a
+				   │              │
+				   │              ▼
+				   │       a already exists in sys.modules
+				   │       BUT a is not finished executing
+				   │
+				   ▼
+				a is eventually completed
+				In this case, python will give partially initialized module error.
+				
+		Fixes: 
+			1. Move shared functionality into another module. Create a common module.
+			2. Local import - means import within the function. This is a local import. The import occurs when the function executes rather than when the module initially loads.
+			3. importlib - Python provides the importlib module for programmatic importing. we can dynamically import module.
+				import importlib
+				math_module = importlib.import_module("math")
+			4. Dynamic imports - Same as pt 3
+			
+	* Module attributes
+			import calculator
+
+			print(calculator.__name__)
+			print(calculator.__file__)
+			print(calculator.__dict__)
+			print(copy.__spec__)
+			print(copy.__loader__)
+			
+	* Module namespace
+		suppose there is a module, calculator.py which is having global variable and one method.
+		While importing, The module contains...
+			calculator.__dict__
+			{
+				"__name__": ...,
+				"__file__": ...,
+				"x": 100,
+				"add": <function ...>
+			}
+		
+				
