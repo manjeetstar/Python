@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37, chap38, chap39
+Today's Agenda : chap37, chap38, chap39, chap40
 
 Chap37: Python Object Model
 ***************************
@@ -141,3 +141,60 @@ Chapter30: Mutable vs Immutable Objects
 ***************************************
 	* Same as already covered
 	* We need to understand mutating vs redeclaring.
+	
+Chap40. Shallow Copy vs Deep Copy 
+*********************************
+	* Shallow copy creates a new outer object but shares nested objects; deep copy recursively creates independent copies of nested objects.
+	* Assignment vs Shallow copy vs Deep copy
+			Assignment
+				↓
+			same object
+
+			Shallow Copy
+				↓
+			new outer object
+			same nested objects
+
+			Deep Copy
+				↓
+			new outer object
+			new nested objects
+			
+	* Shallow Copy - Copies only outer and not nested one.
+			original ─────► Outer List A
+                  │
+                  ├──► List X [1,2]
+                  │
+                  └──► List Y [3,4]
+
+
+			shallow ──────► Outer List B
+							  │
+							  ├──► List X [1,2]
+							  │
+							  └──► List Y [3,4]
+							  
+	  Deep copy - Deep copy recursively copies the objects inside.
+			original ─────► Outer List A
+                  │
+                  ├──► List X [1,2]
+                  └──► List Y [3,4]
+
+
+			deep ─────────► Outer List B
+							  │
+							  ├──► List P [1,2]
+							  └──► List Q [3,4]
+							  
+	* Why deep copy can be expensive??
+		deepcopy() recursively walks the object graph and creates independent copies. Shallow copy is cheap.
+		
+	** In shallow copy, a=[1,2,[11,1,2,2]] b=a.copy() Now a[0] is b[0] shouuld be false... I can understand nested will refer the same. does it mean from the same list?
+		After Shallow copying,
+			a                              b
+			┌─────┬─────┬─────────┐       ┌─────┬─────┬─────────┐
+			│  ───┼─►1  │  ───────┼─►     │  ───┼─►1  │  ───────┼─►
+			└─────┴─────┴─────────┘       └─────┴─────┴─────────┘
+		The slots are different, but the references stored in those slots can point to the same object. Thats why it will be true only.
+		
+		For deepcopy, Same will happen but only for immutable objects. This is the key distinction.
