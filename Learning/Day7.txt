@@ -63,7 +63,7 @@ Chap38: Memory Management
 			other = data
 			data = {"count": 100} # creating an another dictionary. make data reference a different object.
 			
-	* For garbage collection, gc.collect() . We dont need to do manually as python does it regularly.
+	* For garbage collection, gc.collect() . We dont need to do manually as python does it regularly. Its gives the count of garbage collected.
 	
 	** Python Heap - Python objects generally live in a private heap managed by Python. Python's memory allocator manages this memory.
 			Python Heap
@@ -83,3 +83,56 @@ Chap38: Memory Management
 				└──────────────┴───────────────┘
 													  ↑
 												   Python heap
+	
+	** Small Objects and pymalloc - CPython has specialized allocation mechanisms. For many small objects, CPython uses an allocator commonly known as: pymalloc
+			Operating System
+				   │
+				   ▼
+			Python Memory Allocator
+				   │
+				   ▼
+			pymalloc
+				   │
+				   ▼
+			Python objects 
+		** When we delete an object, it doesnt mean that the OS memory will be increased. Python may release the object's memory back to its allocator, while the allocator keeps memory available for future Python allocations. This explains why a process's RSS can remain high even after objects are deleted.
+		
+	* sys.getsizeof() - This is being used to get the shallow size of the object. 
+	      ctr=[1,2,3,"Manjeet" ] This is method will give the size of the list object only but what abt held value of the list itself? This method doesn't simply add the memory of all nested objects.
+		  
+	* tracemalloc - For debugging Python memory allocations.	
+		import sys, tracemalloc
+		tracemalloc.start()
+		ctr=["Manjeet",22,3,4,True]
+
+		for stat in tracemalloc.take_snapshot().statistics("lineno")[:5]:
+			print(stat)
+	* List:
+		RAM
+		████████████████████
+		Generator:
+		RAM
+		██	  
+		  Thats why generator are more useful in large dataset processing.
+		  
+	* Deepcopy
+		import copy	
+		b = copy.deepcopy(a)
+		
+	** Summary
+			VARIABLE
+			   │
+			   │ reference
+			   ▼
+			OBJECT
+			   │
+			   ▼
+			REFERENCE COUNT
+			   │
+			   ├── > 0 → object reachable
+			   │
+			   └── 0 → reclaimable
+							│
+							▼
+					Garbage Collection
+					for cyclic garbage
