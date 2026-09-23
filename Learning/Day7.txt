@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37, chap38, chap39, chap40, chap41
+Today's Agenda : chap37, chap38, chap39, chap40, chap41, chap42
 
 Chap37: Python Object Model
 ***************************
@@ -276,4 +276,45 @@ Chap41. Python Import System
 				"add": <function ...>
 			}
 		
+Chap42. Virtual Environments & Dependency Management 
+****************************************************
+	* why do we prefer Virtual env as to solve "How do we make sure Project A and Project B can use different Python packages and versions without interfering with each other?"
+	* A virtual environment creates an isolated Python environment for a project.
+		python -m venv .venv [This is .venv creation command ]
+			python
+			  ↓
+			find venv module
+			  ↓
+			execute venv
+			  ↓
+			create .venv
+			
+		Inside .venv - We can see /bin, /include, /lib, /lib64 folders and .gitignore and pyvenv.cfg files.		
+		Activating the virtual environment - in wsl(linux), source .venv/bin/activate , Activation mainly changes your shell's environment so that commands such as: pip, requests resolve to the virtual environment's executables.
+		In layman terms
+			Before activation
+				python
+				  ↓
+				Global Python
+
+			After activation
+				python
+				  ↓
+				.venv Python
+	
+	* Checking which libraries are installed, pip list
+	  pip freeze means: Show all Python packages currently installed in the active Python environment, along with their exact versions.
+	  pip check : This checks whether installed packages have compatible dependencies.
+	  pip install --upgrade requests : for updating to latest packages.
+	  pip uninstall requests
+	  
+	* python -m pip install requests - Means it ties pip to the selected Python interpreter. But pip install requests could install into Python 3.10 while your application runs with Python 3.12.
+		System Python
+			/home/user/.local/bin/python
+		Virtual environment
+			/home/user/project/.venv/bin/python
+						
+						
+				
+				
 				

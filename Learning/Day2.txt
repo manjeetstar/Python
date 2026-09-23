@@ -142,7 +142,7 @@ Chap16: Modules and Packages
 	** when we import module, these are the steps python performs...
 		import module
 			 ↓
-		Find module
+		Find module [ Checks under sys.path folder ] 
 			 ↓
 		Load module
 			 ↓
@@ -170,3 +170,5 @@ Chap16: Modules and Packages
 	   
 	* Why Virtual Environments? Installing everything globally can cause conflicts. Virtual environment gives its specific dependencies and which has no conflict with other packages.
 	* __init__.py vs __init__() Here __init__.py is a specific which tells "consider this folder as package".. __init__() its like a consitructor as defined within the class.
+	
+	*** Refer Day7.txt file Chap 41
