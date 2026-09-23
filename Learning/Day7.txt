@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37, chap38
+Today's Agenda : chap37, chap38, chap39
 
 Chap37: Python Object Model
 ***************************
@@ -136,3 +136,8 @@ Chap38: Memory Management
 							▼
 					Garbage Collection
 					for cyclic garbage
+					
+Chapter30: Mutable vs Immutable Objects
+***************************************
+	* Same as already covered
+	* We need to understand mutating vs redeclaring.
