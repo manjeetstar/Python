@@ -21,3 +21,28 @@ Chap37: Python Object Model
 Chap38: Memory Management
 *************************
 	* Python variables hold references to objects; CPython primarily uses reference counting to manage object lifetime, with cyclic garbage collection handling reference cycles, while its memory allocator manages the underlying memory.
+	
+	* Python Program
+			 │
+			 ▼
+		┌──────────────────────────┐
+		│     Python Memory        │
+		│       Manager            │
+		└────────────┬─────────────┘
+					 │
+			   ┌─────┴─────┐
+			   ▼           ▼
+		   Objects      Allocator
+			   │
+			   ▼
+		   Heap Memory
+		Python manages memory automatically. In Python, everything is an object.
+			x ───────► Integer object 100
+			name ────► String object "Manjeet"
+			users ───► List object []			
+			Variables are references to objects, not containers holding the objects themselves.
+			
+	* for getting the reference, id(<object>) is present.
+	* Reference counting - Python keeps track of how many references point to an object in memory. To get the count, sys.getrefcount(<object>) is present. First time, it will count as 2 Because getrefcount() itself temporarily creates another reference.
+		a ─────────────► [10,20,30]
+		getrefcount(a) ─► [10,20,30]   ← temporary
