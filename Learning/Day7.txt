@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap37, chap38, chap39, chap40, chap41, chap42
+Today's Agenda : chap37, chap38, chap39, chap40, chap41, chap42, chap43
 
 Chap37: Python Object Model
 ***************************
@@ -313,6 +313,11 @@ Chap42. Virtual Environments & Dependency Management
 			/home/user/.local/bin/python
 		Virtual environment
 			/home/user/project/.venv/bin/python
+	** python -c "import sys; print(sys.executable)" - it tells which python interpreter is executing the code.
+	
+Chap43. Python Packaging 
+************************
+	* 
 						
 						
 				
