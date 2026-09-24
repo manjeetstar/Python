@@ -321,7 +321,7 @@ NA-Chap43. Python Packaging
 	
 Chap44. Logging 
 ***************
-	* 
+	* Python logging provides a structured way to record application events and route them through configurable levels, handlers, formatters, and filters to destinations such as the console, files, or monitoring systems.
 						
 						
 				
