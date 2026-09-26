@@ -259,3 +259,11 @@ Chap31:  Context Managers
 			 def __exit__(self, exc_type, exc_value, traceback):
 			 
 	- For context managers, we very commonly need try/finally without except. Exception is being handled by __exit__ only.
+	  __exit__() is responsible for cleanup. It receives three arguments: def __exit__(self, exc_type, exc_value, traceback). They describe an exception, if one occurred. If no exception, then all three arguments will be having None value.
+	  In case of exception, 
+			with MyContext():
+				raise ValueError("Oops") Here exc_type is ValueError, exc_value is oops and traceback is traceback informations.
+		
+		**** __exit__() runs even when an exception occurs		
+		**** Can __exit__() suppress an exception? YES. if __exit__ returns true, exception will be suppressed.
+				
