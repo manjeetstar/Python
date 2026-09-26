@@ -176,4 +176,6 @@ Chap29: Decorators
 			
 Chap30: Closures
 ****************
-	* `
+	-  A closure is a function that remembers and can access variables from its enclosing (outer) function even after the outer function has finished executing.
+	- 
+	
