@@ -315,4 +315,20 @@ Chap31:  Context Managers
 			Context Manager
 				↓
 			block/resource-level lifecycle
+			
+Chap32:   Regular Expressions
+*****************************
+	* For regular expression, Python provides 're' module.
+	  Methods - re.search(), re.match(), re.fullmatch(),re.findall(),re.finditer(),re.sub(),re.split(). We will use 'r' means raw string.
+	  
+	  - re.search() is used to find the first occurrence of a regex pattern anywhere in a string.
+	  - re.match() checks whether a regular expression matches at the beginning of a string.
+	  - re.fullmatch() checks whether the entire string matches the regular expression.
+	  - re.findall() is used when you want to find all occurrences of a regex pattern in a string. Unlike re.search() / re.match(), it doesn't return a Match object. It returns a list.
+	  - re.finditer() is similar to re.findall() because it finds all matches, but there is one major difference. findall() returns the matched values, while finditer() returns Match objects.
+	  - re.sub() is used to find text matching a regular expression and replace it with something else.
+	  - re.split() is used to split a string using a regular expression as the delimiter/separator.
+	  
+	- The ^ inside [] means NOT.
+	  
 						 
