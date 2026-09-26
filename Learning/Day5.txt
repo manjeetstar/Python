@@ -304,4 +304,15 @@ Chap31:  Context Managers
 			with dbManagement() as (a, b):
 				print(f"Returned outcomes {a} {b}")
 				raise ValueError("This is the error")
-				 
+				
+	    Handling exceptions with @contextmanager -- Use try and finally. Try for yielding value and finally for closing/clearing the connection.
+		
+	- Context Manager vs Decorator : 
+			Decorator
+				↓
+			function-level behavior
+
+			Context Manager
+				↓
+			block/resource-level lifecycle
+						 
