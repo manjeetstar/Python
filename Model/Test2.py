@@ -25,4 +25,4 @@ def factory():
 
 fact=factory()
 for factt in fact:
-    print(factt())
+    print(factt(), factt.__defaults__)

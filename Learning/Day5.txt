@@ -1,6 +1,6 @@
 Agenda- Chapter(s)
 *****************
-Today's Agenda : chap27, chap28, chap29, Chap30
+Today's Agenda : chap27, chap28, chap29, Chap30, chap31
 
 Chap27:  Lambda Functions
 *************************
@@ -229,3 +229,33 @@ Chap30: Closures
 			
 	- How Python Resolves Variables: LEGB? That enclosing lookup is what makes closures possible. Means if local is not present, will look enclosing , then global and finally built-in.
 	
+	- How default arguments are evaluated? - the default argument is not a closure variable. i=i in def func(i=i) is capturing the current value as a default argument; it is not creating a closure.
+	
+Chap31:  Context Managers
+*************************
+	* A context manager guarantees that something is properly set up before a block runs and properly cleaned up after the block finishes.
+	- Without the context manager, We have to remember:
+			Open the resource
+			Use the resource
+			Close the resource
+			Make sure it closes even if an exception occurs
+	- Context Manager works in this fashion...
+			ENTER
+			  ↓
+			resource acquired
+			  ↓
+			execute with block
+			  ↓
+			EXIT
+			  ↓
+			resource cleaned up
+			
+	- Internally what happens? When Python sees:
+		with something as x:
+			...
+	    it looks for two special methods: __enter__ and __exit__ dunder methods. So a context manager essentially provides: __enter__ for setup and __exit__ for cleanup activities.
+		Signature of both methods
+			 def __enter__(self):
+			 def __exit__(self, exc_type, exc_value, traceback):
+			 
+	- For context managers, we very commonly need try/finally without except. Exception is being handled by __exit__ only.
