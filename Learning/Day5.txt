@@ -177,6 +177,8 @@ Chap29: Decorators
 Chap30: Closures
 ****************
 	-  A closure is a function that remembers and can access variables from its enclosing (outer) function even after the outer function has finished executing.
+		** Nested function + reference to an enclosing variable + that function survives/escapes the enclosing scope = closure.
+		
 	-  why and how does it happen? - This connects directly to Python's scope and object lifetime. Even outer function has finished execution but inner function has reference to outer variable. So its still pointing to the variable. Means variable is still reachable to inner function so its didnt garbage collected.
 	- __closure__ : Python actually exposes closure information.
 	  For insepcting the actual value, print(func.__closure__[0].cell_contents)
@@ -208,3 +210,22 @@ Chap30: Closures
 	    A class is generally better when you have multiple operations/state fields. A closure can be elegant when you need a small private stateful function.
 		
 	- Classic Closure Loop Problem : 
+			def create_functions():
+				functions = []
+				for i in range(3):
+					def func():
+						return i
+					functions.append(func)
+			    return functions
+				
+		    functions = create_functions()
+			for f in functions:
+				print(f()) // Here function will not return 0,1,2 but it will return 2,2,2. Because the functions don't capture the value of i at each iteration. They capture the variable i. By the end of execution, the value is 2 so it will return 2 only.
+				
+	    How to fix it? In inner function signature , if we do like func(i=i) It means Python concept: default arguments are evaluated when the function is created, not when it is called. the right-hand i is evaluated immediately and stored as the function's default value. So its like...
+			function[0] → default i = 0
+			function[1] → default i = 1
+			function[2] → default i = 2
+			
+	- How Python Resolves Variables: LEGB? That enclosing lookup is what makes closures possible. Means if local is not present, will look enclosing , then global and finally built-in.
+	
