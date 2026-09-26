@@ -177,5 +177,34 @@ Chap29: Decorators
 Chap30: Closures
 ****************
 	-  A closure is a function that remembers and can access variables from its enclosing (outer) function even after the outer function has finished executing.
-	- 
+	-  why and how does it happen? - This connects directly to Python's scope and object lifetime. Even outer function has finished execution but inner function has reference to outer variable. So its still pointing to the variable. Means variable is still reachable to inner function so its didnt garbage collected.
+	- __closure__ : Python actually exposes closure information.
+	  For insepcting the actual value, print(func.__closure__[0].cell_contents)
+	 
+	- Each Closure Has Its Own State. It means if we are calling function which return inner function twice and assigned to  two different variable then for both the variable, which will hold inner function, will have its own closure state.
 	
+	- Closures Can Maintain Mutable State. Means they can modify outer variable too by declaring it as nonLocal.
+	
+	- def counter():
+			count = 0
+			def increment():
+				count += 1 // pt5
+				return count
+			return increment
+	  Here it will give nonLocalError. because pt5 is basically an assignment and it looks for local variable.  but there is no count local variable.
+	  nonlocal tells Python: "Don't create a new local count. Modify the count belonging to the enclosing function."
+	  
+	  -- global   → module/global scope
+		 nonlocal → nearest enclosing function scope
+		 
+	- Closure vs Class : Here state means data
+		Class
+		 └── object
+			  └── state
+
+		Closure
+		 └── function
+			  └── captured state
+	    A class is generally better when you have multiple operations/state fields. A closure can be elegant when you need a small private stateful function.
+		
+	- Classic Closure Loop Problem : 
