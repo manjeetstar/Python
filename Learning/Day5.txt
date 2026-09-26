@@ -266,4 +266,42 @@ Chap31:  Context Managers
 		
 		**** __exit__() runs even when an exception occurs		
 		**** Can __exit__() suppress an exception? YES. if __exit__ returns true, exception will be suppressed.
+		
+	- When we write -- Here MyContext is a class having __enter__ and __exit__ methods implementation.
+		with MyContext():
+			do_something()
+		
+		Internally, its being transpiled to ...
+		
+			context = MyContext()
+			value = context.__enter__()
+			try:
+				do_something()
+			finally:
+				context.__exit__(None, None, None)
 				
+		But the actual exception handling is more nuanced because Python passes exception information to __exit__().
+		
+	- Context Manager with a Lock:			
+			acquire lock
+				 ↓
+			run code
+				 ↓
+			release lock
+			
+	- We can have multiple context manager together in a single line. __enter__() and __exit__() are not inherently "database methods" or "file methods." They are part of Python's context manager protocol. They can be implemented by any object/class that wants to participate in.
+	
+	- contextlib : Just to avoiding writing boilerplate code like for __enter__ and __exit__ method, python provides a module contextlib specifically for context manager...
+		For context managers, we very commonly need try/finally without except. Exception is being handled by __exit__ only.
+		
+			@contextmanager
+			def dbManagement():   				
+				try: 
+					yield "Manjeet", "Singh"
+				finally:    
+					print("Performed cleanup activities")
+
+			with dbManagement() as (a, b):
+				print(f"Returned outcomes {a} {b}")
+				raise ValueError("This is the error")
+				 
