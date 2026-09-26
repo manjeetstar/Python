@@ -12,7 +12,17 @@ def calculate(value):
 
 value=calculate("Main")
 print(value())
-print(value())
-print(value())
-
 print("Closure informations", value.__closure__[1].cell_contents)
+
+def factory():
+    str=[]
+    for i in range(3):
+        def innerfunction(i=i):
+            return i
+
+        str.append(innerfunction)
+    return str
+
+fact=factory()
+for factt in fact:
+    print(factt())
